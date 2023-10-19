@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container mt-4">
+    <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Horizontal Layouts</h4>
 
     <!-- Basic Layout & Basic with Icons -->
     <div class="row">
@@ -14,7 +14,7 @@
             {{-- <small class="text-muted float-end">Default label</small> --}}
           </div>
           <div class="card-body">
-            <form method="POST" action="{{ url('/user/submitEditSPKTP') }}/{{ $rowSKUsaha->id }}">
+            <form method="POST" action="{{ url('/user/submitEditSKUsaha') }}/{{ $rowSKUsaha->id }}">
                 @csrf
               <div class="row mb-3">
 
@@ -70,7 +70,6 @@
       <!-- Basic with Icons -->
 
     </div>
-</div>
 
   <!-- / Content -->
 

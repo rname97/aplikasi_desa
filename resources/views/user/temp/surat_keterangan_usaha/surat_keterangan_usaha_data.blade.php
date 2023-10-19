@@ -1,7 +1,7 @@
 @extends('user.layouts.master')
 
 @section('content')
-<div class="container mt-4">
+<h4 class="py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
 <div class="card">
     <div class="card-header">
         <div class="d-flex align-items-center justify-content-between">
@@ -46,7 +46,6 @@
             </tbody>
         </table>
     </div>
-</div>
 </div>
 <!-- / Content -->
 

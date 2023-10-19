@@ -1,13 +1,13 @@
 @extends('user.layouts.master')
 
 @section('content')
-<div class="container mt-4">
+<h4 class="py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
 <div class="card">
     <div class="card-header">
         <div class="d-flex align-items-center justify-content-between">
             <h5 class="card-title m-0 me-2">Data Surat Pengantar KTP</h5>
             <div class="dropdown">
-                <a href="{{ url('/user/spktp_form_add') }}" class="btn btn-sm btn-primary"><i class='bx bxs-plus-square'></i>Tambah</a>
+                <a href="{{ url('/user/SPKTP_form_add') }}" class="btn btn-sm btn-primary"><i class='bx bxs-plus-square'></i>Tambah</a>
             </div>
         </div>
     </div>
@@ -34,9 +34,9 @@
                         <td><span class="fw-medium">{{ $rowSPKTP->pekerjaan }}</span></td>
                         <td><span class="fw-medium">{{ $rowSPKTP->status }}</span></td>
                         <td>
-                            <a href="{{ url('/user/spktp_data_detail/'.$rowSPKTP->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>Detail</a>
+                            <a href="{{ url('/user/SPKTP_data_detail/'.$rowSPKTP->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>Detail</a>
                             @if ($rowSPKTP->status == "ditolak")
-                            <a href="{{ url('/user/spktp_form_edit/'.$rowSPKTP->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>Edit</a>
+                            <a href="{{ url('/user/SPKTP_form_edit/'.$rowSPKTP->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>Edit</a>
                             @endif
 
                             {{-- <a href="{{ url('/deleteBooks/'.$rowSuratKeteranganUsaha->id) }}" class="btn btn-sm btn-danger"><i class='bx bxs-plus-square'></i>delete</a> --}}
@@ -48,5 +48,5 @@
     </div>
 </div>
 <!-- / Content -->
-</div>
+
 @endsection

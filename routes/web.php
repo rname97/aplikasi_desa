@@ -31,7 +31,7 @@ use App\Http\Controllers\Admin\DashboardAdminController;
 //     return view('admin.layouts.master');
 // });
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 
@@ -118,21 +118,21 @@ Route::group(['middleware' => ['auth:web']], function() {
 
 
     // ===========KTP===================
-    Route::get('/user/SPKTP_data', [SPKTPController::class, 'show'])->name('user.SPKTP_data');
-    Route::get('/user/SPKTP_form_add', [SPKTPController::class, 'viewAddSPKTP'])->name('user.SPKTP_form_add');
+    Route::get('/user/spktp_data', [SPKTPController::class, 'show'])->name('user.spktp_data');
+    Route::get('/user/spktp_form_add', [SPKTPController::class, 'viewAddSPKTP'])->name('user.spktp_form_add');
     Route::post('/user/submitAddSPKTP', [SPKTPController::class, 'addSPKTP'])->name('user.submitAddSPKTP');
-    Route::get('/user/SPKTP_form_edit/{id}', [SPKTPController::class, 'viewEditSPKTP'])->name('user.SPKTP_form_edit.id');
+    Route::get('/user/spktp_form_edit/{id}', [SPKTPController::class, 'viewEditSPKTP'])->name('user.spktp_form_edit.id');
     Route::post('/user/submitEditSPKTP/{id}', [SPKTPController::class, 'submitEditSPKTP']);
-    Route::get('/user/SPKTP_data_detail/{id}', [SPKTPController::class, 'viewDetailSPKTP'])->name('user.SPKTP_data_detail');
+    Route::get('/user/spktp_data_detail/{id}', [SPKTPController::class, 'viewDetailSPKTP'])->name('user.spktp_data_detail');
 
 
      // ===========KK===================
-     Route::get('/user/SPKK_data', [SPKKController::class, 'show'])->name('user.SPKK_data');
-     Route::get('/user/SPKK_form_add', [SPKKController::class, 'viewAddSPKK'])->name('user.SPKK_form_add');
+     Route::get('/user/spkk_data', [SPKKController::class, 'show'])->name('user.spkk_data');
+     Route::get('/user/spkk_form_add', [SPKKController::class, 'viewAddSPKK'])->name('user.spkk_form_add');
      Route::post('/user/submitAddSPKK', [SPKKController::class, 'addSPKK'])->name('user.submitAddSPKK');
-     Route::get('/user/SPKK_form_edit/{id}', [SPKKController::class, 'viewEditSPKK'])->name('user.SPKK_form_edit.id');
+     Route::get('/user/spkk_form_edit/{id}', [SPKKController::class, 'viewEditSPKK'])->name('user.spkk_form_edit.id');
      Route::post('/user/submitEditSPKK/{id}', [SPKKController::class, 'submitEditSPKK']);
-     Route::get('/user/SPKK_data_detail/{id}', [SPKKController::class, 'viewDetailSPKK'])->name('user.SPKK_data_detail');
+     Route::get('/user/spkk_data_detail/{id}', [SPKKController::class, 'viewDetailSPKK'])->name('user.spkk_data_detail');
 
       // ===========Pengaduan Masarakat===================
     //   Route::get('/user/SPKK_data', [SPKTPController::class, 'show'])->name('user.SPKK_data');

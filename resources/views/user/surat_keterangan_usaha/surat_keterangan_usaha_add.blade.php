@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Horizontal Layouts</h4>
+<div class="container mt-4">
 
     <!-- Basic Layout & Basic with Icons -->
     <div class="row">
@@ -20,25 +20,39 @@
 
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Nik</label>
                 <div class="col-sm-10">
-                  <input type="text" name="nik_input" class="form-control" id="basic-default-name" placeholder="Input Nik" />
+                  <input type="text" name="nik_input" class="form-control" id="basic-default-name" placeholder="Input Nik" disabled value="123244" />
                 </div>
               </div>
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-company">Nama</label>
                 <div class="col-sm-10">
-                  <input type="text" name="nama_input" class="form-control" id="basic-default-company" placeholder="Input Nama" />
+                  <input type="text" name="nama_input" class="form-control" id="basic-default-company" placeholder="Input Nama" disabled value="user" />
                 </div>
               </div>
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-company">Tempat Lahir</label>
                 <div class="col-sm-10">
-                  <input type="text" name="tempatLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tempat Lahir" />
+                  <input type="text" name="tempatLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tempat Lahir" disabled value="Semarang" />
                 </div>
               </div>
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-company">Tanggal Lahir</label>
                 <div class="col-sm-10">
-                  <input type="text" name="tanggalLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tanggal Lahir" />
+                  <input type="text" name="tanggalLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tanggal Lahir" disabled value="2003-01-01"/>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-company">alamat KTP</label>
+                <div class="col-sm-10">
+                    <textarea name="alamat_input" id="" class="form-control" cols="30" rows="10" placeholder="Input Alamat" disabled >Desa Rejo</textarea>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-company">alamat Domisili</label>
+                <div class="col-sm-10">
+                    <textarea name="alamat_input" id="" class="form-control" cols="30" rows="10" placeholder="Input Alamat" disabled >Desa Rejo</textarea>
                 </div>
               </div>
 
@@ -49,17 +63,31 @@
                 </div>
               </div>
 
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-company">Type Usaha</label>
+                <div class="col-sm-10">
+                  <input type="text" name="pekerjaan_input" class="form-control" id="basic-default-company" placeholder="Type Usaha" />
+                </div>
+              </div>
 
               <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="basic-default-company">alamat</label>
+                <label class="col-sm-2 col-form-label" for="basic-default-company">Mulai Usaha</label>
                 <div class="col-sm-10">
-                    <textarea name="alamat_input" id="" class="form-control" cols="30" rows="10" placeholder="Input Alamat"></textarea>
+                  <input type="text" name="pekerjaan_input" class="form-control" id="basic-default-company" placeholder="Mulai Usaha" />
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-company">Foto Bukti Usaha</label>
+                <div class="col-sm-10">
+                  <input type="file" name="pekerjaan_input" class="form-control" id="basic-default-company" placeholder="Mulai Usaha" />
                 </div>
               </div>
 
 
               <div class="row justify-content-end">
                 <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Back</button>
                   <button type="submit" class="btn btn-primary">Send</button>
                 </div>
               </div>
@@ -70,6 +98,7 @@
       <!-- Basic with Icons -->
 
     </div>
+</div>
 
   <!-- / Content -->
 

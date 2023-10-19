@@ -3,7 +3,7 @@
 @section('content')
 
     <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Horizontal Layouts</h4>
-
+    <div class="container mt-4">
     <!-- Basic Layout & Basic with Icons -->
     <div class="row">
       <!-- Basic Layout -->
@@ -70,7 +70,7 @@
       <!-- Basic with Icons -->
 
     </div>
-
+    </div>
   <!-- / Content -->
 
 @endsection

@@ -33,6 +33,10 @@
 
     <!-- Page CSS -->
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+
+
+
     <!-- Helpers -->
     <script src="{{ asset('/admin') }}/assets/vendor/libs/jquery/jquery-3.7.1.js"></script>
     <script src="{{ asset('/admin') }}/assets/vendor/js/helpers.js"></script>

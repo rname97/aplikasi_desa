@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SPKKController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\SPKTPController;
 use App\Http\Controllers\SKUsahaController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\HomeAdminController;
+use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Admin\SKUsahaAdminController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 
@@ -34,6 +36,9 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+// Route::get('/',[LoginController::class,'showAdminLoginForm'])->name('admin.login-view');
+// Route::get('/admin/login',[LoginController::class,'showAdminLoginForm'])->name('admin.login-view');
+
 
 Auth::routes();
 
@@ -47,14 +52,29 @@ Route::post('/admin/register',[RegisterController::class,'createAdmin'])->name('
 Route::group(['middleware' => ['auth:admin']], function() {
     Route::get('/admin/dashboard/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
 
-    // Route::get('/kategori', [KategoriController::class, 'show']);
+    //===========================User===========================
+    Route::get('/admin/user_data', [UserAdminController::class, 'show'])->name('admin.user_data');
+    Route::get('/admin/user_form_edit/{id}', [UserAdminController::class, 'viewEditUser'])->name('admin.user_form_edit.id');
+    Route::post('/admin/submitEditUser/{id}', [UserAdminController::class, 'updateUser']);
+    Route::get('/admin/deleteUser/{id}', [UserAdminController::class, 'deleteUser']);
+
+
+    //===========================SKU===========================
+    Route::get('/admin/sku_data', [SKUsahaAdminController::class, 'show'])->name('admin.sku_data');
+    Route::get('/admin/sku_form_process/{skUsahaID}/{userID}', [SKUsahaAdminController::class, 'viewProcessSKUsaha'])->name('admin.sku_form_process');
+    Route::post('/admin/submitProccessSKUsahaSuccess', [SKUsahaAdminController::class, 'processSKUsahaSuccess'])->name('admin.submitProccessSKUsahaSuccess');
+    Route::post('/admin/submitProccessSKUsahaFailed', [SKUsahaAdminController::class, 'processSKUsahaFailed'])->name('admin.submitProccessSKUsahaFailed');
+    Route::get('/admin/deleteSKUsaha/{id}', [SKUsahaAdminController::class, 'deleteSKUsaha']);
+
+
+
     // Route::get('/kategori_form_add', [KategoriController::class, 'viewAddKategori'])->name('kategori_form_add');
     // Route::post('/submitAddKategori', [KategoriController::class, 'addKategori'])->name('submitAddKategori');
     // Route::get('/kategori_form_edit/{id}', [KategoriController::class, 'viewEditKategori']);
     // Route::post('/submitEditKategori/{id}', [KategoriController::class, 'editKategori']);
     // Route::get('/deleteKategori/{id}', [KategoriController::class, 'deleteKategori']);
 
-
+    //=========================================================
 
     // Route::get('/books', [BooksController::class, 'show']);
     // Route::get('/books_form_add', [BooksController::class, 'viewAddBooks'])->name('books_form_add');
@@ -78,10 +98,7 @@ Route::group(['middleware' => ['auth:admin']], function() {
     // Route::get('/deleteBooks/{id}', [SKUsahaController::class, 'deleteBooks']);
 
 
-    Route::get('/admin/sku_data', [SKUsahaAdminController::class, 'show'])->name('admin.sku_data');
-    Route::get('/admin/sku_form_process/{skUsahaID}/{userID}', [SKUsahaAdminController::class, 'viewProcessSKUsaha'])->name('admin.sku_form_process');
-    Route::post('/admin/submitProccessSKUsahaSuccess', [SKUsahaAdminController::class, 'processSKUsahaSuccess'])->name('admin.submitProccessSKUsahaSuccess');
-    Route::post('/admin/submitProccessSKUsahaFailed', [SKUsahaAdminController::class, 'processSKUsahaFailed'])->name('admin.submitProccessSKUsahaFailed');
+
 });
 
 
@@ -108,7 +125,13 @@ Route::group(['middleware' => ['auth:web']], function() {
 
     Route::get('/user/dashboard', [HomeController::class, 'index'])->name('user.dashboard');
 
+    // =========Profile===================
+    Route::get('/user/profile/{id}', [UserController::class, 'getUser'])->name('user.profile.id');
+    Route::post('/user/profileUpdate/{id}', [UserController::class, 'profileUpdate'])->name('user.profileUpdate.id');
+
+
     // ===========SKU======================
+
     Route::get('/user/sku_data', [SKUsahaController::class, 'show'])->name('user.sku_data');
     Route::get('/user/sku_form_add', [SKUsahaController::class, 'viewAddSKUsaha'])->name('user.sku_form_add');
     Route::post('/user/submitAddSKUsaha', [SKUsahaController::class, 'addSKUsaha'])->name('user.submitAddSKUsaha');

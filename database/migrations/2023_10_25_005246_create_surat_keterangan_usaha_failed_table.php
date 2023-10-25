@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('surat_pengantar_kk_success', function (Blueprint $table) {
+        Schema::create('surat_keterangan_usaha_failed', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("spkk_id");
-            $table->foreign("spkk_id")->references("id")->on("surat_pengantar_kk");
-            $table->string("spkkFile");
+            $table->unsignedBigInteger("skUsaha_id");
+            $table->foreign("skUsaha_id")->references("id")->on("surat_keterangan_usaha");
+            $table->text("skUsahaDeskFailed");
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('surat_pengantar_kk_success');
+        Schema::dropIfExists('surat_keterangan_usaha_failed');
     }
 };

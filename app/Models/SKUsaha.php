@@ -11,14 +11,13 @@ class SKUsaha extends Model
     protected $table = "surat_keterangan_usaha";
 
     protected $fillable = [
-        'nik',
-        'nama',
-        'tempatLahir',
-        'tanggalLahir',
         'pekerjaan',
-        'alamat',
-        'status',
+        'typeUsaha',
+        'lokasiUsaha',
+        'mulaiUsaha',
+        'fotoUsaha',
         'user_id',
         'admin_id',
+        'status_id',
     ];
 }

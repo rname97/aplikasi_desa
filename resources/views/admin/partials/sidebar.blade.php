@@ -72,49 +72,26 @@
     </div>
 
     <div class="menu-inner-shadow"></div>
-
     <ul class="menu-inner py-1">
-
-      <li class="menu-header small text-uppercase"><span class="menu-header-text">Dashboard</span></li>
-      <li class="menu-item {{ (request()->is('admin/dashboard*')) ? 'active open' : '' }} ">
-        <a href="{{ url('/admin/dashboard') }}" class="menu-link">
-          <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-          <div data-i18n="Basic">Dashboard</div>
-        </a>
-      </li>
-      <!-- Icons -->
-      <li class="menu-item {{ (request()->is('admin/sku*')) ? 'active open' : '' }}">
-        <a href="{{ url('/admin/sku_data') }}" class="menu-link">
-            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-          <div data-i18n="Icons">SKU</div>
-        </a>
-      </li>
-
-      <li class="menu-item {{ (request()->is('kategori*')) ? 'active open' : '' }}">
-        <a href="{{ url('/kategori') }}" class="menu-link">
-            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-          <div data-i18n="Icons">Kategori</div>
-        </a>
-      </li>
-      <li class="menu-item {{ (request()->is('peminjaman*')) ? 'active open' : '' }}">
-        <a href="{{ url('/peminjaman') }}" class="menu-link">
-            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-          <div data-i18n="Icons">Peminjaman</div>
-        </a>
-      </li>
-
-      <li class="menu-item">
-        <a href="icons-mdi.html" class="menu-link">
-            <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-          <div data-i18n="Icons">User</div>
-        </a>
-      </li>
-
-
-
-
-
-
-
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Dashboard</span></li>
+        <li class="menu-item {{ (request()->is('admin/dashboard*')) ? 'active open' : '' }} ">
+            <a href="{{ url('/admin/dashboard') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                <div data-i18n="Basic">Dashboard</div>
+            </a>
+        </li>
+        <!-- Icons -->
+        <li class="menu-item {{ (request()->is('admin/sku*')) ? 'active open' : '' }}">
+            <a href="{{ url('/admin/sku_data') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                <div data-i18n="Icons">SKU</div>
+            </a>
+        </li>
+        <li class="menu-item {{ (request()->is('admin/user*')) ? 'active open' : '' }}">
+            <a href="{{ url('/admin/user_data') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                <div data-i18n="Icons">Data User</div>
+            </a>
+        </li>
     </ul>
-  </aside>
+</aside>

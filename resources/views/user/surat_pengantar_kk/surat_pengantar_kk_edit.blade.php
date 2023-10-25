@@ -2,75 +2,118 @@
 
 @section('content')
 
-    <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Horizontal Layouts</h4>
-    <div class="container mt-4">
+<div class="container mt-5 mb-5 h-100 content" >
     <!-- Basic Layout & Basic with Icons -->
-    <div class="row">
-      <!-- Basic Layout -->
-      <div class="col-xxl">
-        <div class="card mb-4">
-          <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Edit Pendaftaran Surat Keterangan KK</h5>
-            {{-- <small class="text-muted float-end">Default label</small> --}}
-          </div>
-          <div class="card-body">
-            <form method="POST" action="{{ url('/user/submitEditSPKK') }}/{{ $rowSKUsaha->id }}">
-                @csrf
-              <div class="row mb-3">
-
-                <label class="col-sm-2 col-form-label" for="basic-default-name">Nik</label>
-                <div class="col-sm-10">
-                  <input type="text" name="nik_input" class="form-control" id="basic-default-name" placeholder="Input Nik" value="{{ $rowSKUsaha->nik }}" />
+    <!-- Basic Layout -->
+    <form method="POST" action="{{ route('user.submitAddSKUsaha') }}">
+        @csrf
+        <div class="card shadow-lg bg-body rounded">
+            <div class="card-header py-4" style="background-color:#0c386e; color: #ffffff;">
+                <div class="mx-3">
+                    <div class="float-end">
+                        <i class="fa-solid fa-file-lines fa-3x"></i>
+                    </div>
+                    <div class="float-start">
+                        <h5>TAMBAH PENDAFTARAN SURAT KETERANGAN USAHA (SKU)</h5>
+                    </div>
                 </div>
-              </div>
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="basic-default-company">Nama</label>
-                <div class="col-sm-10">
-                  <input type="text" name="nama_input" class="form-control" id="basic-default-company" placeholder="Input Nama" value="{{ $rowSKUsaha->nama }}"/>
+            </div>
+            <div class="card-body py-4 px-5">
+                <div class="px-3">
+                    <div class="row mb-3 ">
+                        <label class="col-md-2 col-form-label" for="basic-default-name">Nik</label>
+                        <div class="col-md-10">
+                        <input type="text" name="nik_input" class="form-control" id="basic-default-name" placeholder="Input Nik" disabled value="123244" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-md-2 col-form-label" for="basic-default-company">Nama</label>
+                        <div class="col-md-10">
+                        <input type="text" name="nama_input" class="form-control" id="basic-default-company" placeholder="Input Nama" disabled value="user" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-md-2 col-form-label" for="basic-default-company">Tempat, Tanggal Lahir</label>
+                        <div class="col-md-5">
+                            <input type="text" name="tempatLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tempat Lahir" disabled value="Semarang" />
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" name="tanggalLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tanggal Lahir" disabled value="2003-01-01"/>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        <div class="row mb-3">
+                            <label class="col-md-2 col-form-label" for="basic-default-company">alamat KTP</label>
+                            <div class="col-md-10">
+                                <textarea name="alamat_input" id="" class="form-control" placeholder="Input Alamat" disabled >Desa Rejo</textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-md-2 col-form-label" for="basic-default-company">alamat Domisili</label>
+                            <div class="col-md-10">
+                                <textarea name="alamat_input" id="" class="form-control"  placeholder="Input Alamat" disabled >Desa Rejo</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <p>
+                            <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Show Data
+                            </a>
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="row mb-3">
+                        <label class="col-md-2 col-form-label" for="basic-default-company">Pekerjaan</label>
+                        <div class="col-md-10">
+                        <input type="text" name="pekerjaan_input" class="form-control" id="basic-default-company"  />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-md-2 col-form-label" for="basic-default-company">Type Usaha</label>
+                        <div class="col-md-10">
+                        <input type="text" name="pekerjaan_input" class="form-control" id="basic-default-company" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-md-2 col-form-label" for="basic-default-company">Mulai Usaha</label>
+                        <div class="col-md-10">
+                            <div class='input-group date' id='datetimepicker'>
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-md-2 col-form-label" for="basic-default-company">Foto Bukti Usaha</label>
+                        <div class="col-md-10">
+                            <input type="file" name="pekerjaan_input" class="form-control" id="basic-default-company"  />
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="basic-default-company">Tempat Lahir</label>
-                <div class="col-sm-10">
-                  <input type="text" name="tempatLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tempat Lahir" value="{{ $rowSKUsaha->tempatLahir }}"/>
+            </div>
+            <div class="card-footer p-4">
+                <div class="float-start">
+                    <button class="btn btn-secondary"><i class="fa-solid fa-left-long"></i> Back</button>
                 </div>
-              </div>
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="basic-default-company">Tanggal Lahir</label>
-                <div class="col-sm-10">
-                  <input type="text" name="tanggalLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tanggal Lahir" value="{{ $rowSKUsaha->tanggalLahir }}"/>
+                <div class="float-end">
+                    <button class="btn btn-danger"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+                    <button class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Submit</button>
                 </div>
-              </div>
-
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="basic-default-company">Pekerjaan</label>
-                <div class="col-sm-10">
-                  <input type="text" name="pekerjaan_input" class="form-control" id="basic-default-company" placeholder="Input Pekerjaan" value="{{ $rowSKUsaha->pekerjaan }}"/>
-                </div>
-              </div>
-
-
-              <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="basic-default-company">alamat</label>
-                <div class="col-sm-10">
-                    <textarea name="alamat_input" id="" class="form-control" cols="30" rows="10" placeholder="Input Alamat">{{ $rowSKUsaha->alamat }}</textarea>
-                </div>
-              </div>
-
-
-              <div class="row justify-content-end">
-                <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Send</button>
-                </div>
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
-      <!-- Basic with Icons -->
-
-    </div>
-    </div>
+    </form>
+    <!-- Basic with Icons -->
+</div>
   <!-- / Content -->
+@endsection
 
+@section('contentx')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log("Tess");
+        });
+    </script>
 @endsection

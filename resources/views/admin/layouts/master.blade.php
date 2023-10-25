@@ -71,5 +71,6 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     @include('admin.partials.scripts')
+    @yield('contentx')
   </body>
 </html>

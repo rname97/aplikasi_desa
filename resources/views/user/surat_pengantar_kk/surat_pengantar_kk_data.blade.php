@@ -1,53 +1,96 @@
 @extends('user.layouts.master')
-
 @section('content')
-<div class="container mt-4">
-<div class="card">
-    <div class="card-header">
-        <div class="d-flex align-items-center justify-content-between">
-            <h5 class="card-title m-0 me-2">Data Surat Pengantar KTP</h5>
-            <div class="dropdown">
-                <a href="{{ url('/user/spkk_form_add') }}" class="btn btn-sm btn-primary"><i class='bx bxs-plus-square'></i>Tambah</a>
+<div class="container mt-5 mb-5 h-100">
+    <div class="card shadow-lg bg-body rounded">
+        <div class="card-header py-4" style=" background-color:#0c386e; color: #ffffff;">
+            <div class="mx-3">
+                <div class="float-start">
+                    <h5>SURAT KETERANGAN USAHA (SKU)</h5>
+                    <p>Data Surat Keteranga usaha</p>
+                </div>
+                <div class="float-end">
+                    <a href="{{ url('/user/sku_form_add') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Request Surat</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container table-responsive py-3">
+                <table id="table" class="table table-striped table-bordered table-hover tbl-container bdr" style="width:100%" >
+                    <thead style="">
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span style="font-size: smaller;">Tiger Nixon</span></td>
+                            <td><span style="font-size: smaller;">System Architect</span></td>
+                            <td><span style="font-size: smaller;">Edinburgh</span></td>
+                            <td><span style="font-size: smaller;">61</span></td>
+                            <td><span style="font-size: smaller;">2011-04-25</span></td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-warning"><i class="fa-solid fa-pencil"></i></a>
+                                <a href="" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-size: smaller;">Garrett Winters</span></td>
+                            <td><span style="font-size: smaller;">Accountant</span></td>
+                            <td><span style="font-size: smaller;">Tokyo</span></td>
+                            <td><span style="font-size: smaller;">63</span></td>
+                            <td><span style="font-size: smaller;">2011-07-25</span></td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-warning"><i class="fa-solid fa-pencil"></i></a>
+                                <a href="" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-size: smaller;">Ashton Cox</span></td>
+                            <td><span style="font-size: smaller;">Junior Technical Author</span></td>
+                            <td><span style="font-size: smaller;">San Francisco</span></td>
+                            <td><span style="font-size: smaller;">66</span></td>
+                            <td><span style="font-size: smaller;">2009-01-12</span></td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-warning"><i class="fa-solid fa-pencil"></i></a>
+                                <a href="" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-size: smaller;">Cedric Kelly</span></td>
+                            <td><span style="font-size: smaller;">Senior Javascript Developer</span></td>
+                            <td><span style="font-size: smaller;">Edinburgh</span></td>
+                            <td><span style="font-size: smaller;">22</span></td>
+                            <td><span style="font-size: smaller;">2012-03-29</span></td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-warning"><i class="fa-solid fa-pencil"></i></a>
+                                <a href="" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer p-4">
+            <div class="float-start">
+                <button class="btn btn-secondary"><i class="fa-solid fa-left-long"></i> Back</button>
             </div>
         </div>
     </div>
-    <div class="table-responsive text-nowrap">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>nik</th>
-                    <th>nama</th>
-                    <th>tempat tanggal Lahir</th>
-                    <th>pekerjaan</th>
-                    <th>status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody class="table-border-bottom-0">
-                @foreach ($dataSPKK as $rowSPKK)
-                    <tr>
-                        <td><span class="fw-medium"></span></td>
-                        <td><span class="fw-medium">{{ $rowSPKK->nik }}</span></td>
-                        <td><span class="fw-medium">{{ $rowSPKK->nama }}</span></td>
-                        <td><span class="fw-medium">{{ $rowSPKK->tempatLahir }} - {{ $rowSPKK->tanggalLahir }}</span></td>
-                        <td><span class="fw-medium">{{ $rowSPKK->pekerjaan }}</span></td>
-                        <td><span class="fw-medium">{{ $rowSPKK->status }}</span></td>
-                        <td>
-                            <a href="{{ url('/user/spkk_data_detail/'.$rowSPKK->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>Detail</a>
-                            @if ($rowSPKK->status == "ditolak")
-                            <a href="{{ url('/user/spkk_form_edit/'.$rowSPKK->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>Edit</a>
-                            @endif
-
-                            {{-- <a href="{{ url('/deleteBooks/'.$rowSuratKeteranganUsaha->id) }}" class="btn btn-sm btn-danger"><i class='bx bxs-plus-square'></i>delete</a> --}}
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
 </div>
 <!-- / Content -->
+@endsection
 
+@section('contentx')
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+        $('.dataTables_filter').addClass('float-end');
+        $('.dataTables_paginate').addClass('float-end');
+    });
+</script>
 @endsection

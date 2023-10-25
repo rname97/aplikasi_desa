@@ -15,19 +15,19 @@ class SKUsahaAdminController extends Controller
 {
     //
     public function show(){
+        $dataUser = User::all();
         $dataSKUsaha = SKUsaha::all();
-        $data = ['dataSuratKeteranganUsaha' => $dataSKUsaha];
-
+        $data = ['dataSuratKeteranganUsaha' => $dataSKUsaha, 'dataUser' => $dataUser];
+        // dd($data);
         // echo json_encode($data);
         return view('admin.surat_keterangan_usaha.surat_keterangan_usaha_data', $data);
     }
 
     public function viewProcessSKUsaha($idSkUsaha, $idUser){
-
-
         $rowSKUsaha = SKUsaha::find($idSkUsaha);
         $rowUser = User::find($idUser);
         $data = ['rowSKUsaha' => $rowSKUsaha, 'rowUser' => $rowUser];
+        // dd($data);
         return view('admin.surat_keterangan_usaha.surat_keterangan_usaha_process', $data);
     }
 
@@ -86,6 +86,13 @@ class SKUsahaAdminController extends Controller
          }
          return redirect('/admin/sku_data');
 
+    }
+
+
+    public function deleteSKUsaha($id){
+        $skUsaha = SKUsaha::find($id);
+        $skUsaha->delete();
+        return redirect('/admin/sku_data');
     }
 
 

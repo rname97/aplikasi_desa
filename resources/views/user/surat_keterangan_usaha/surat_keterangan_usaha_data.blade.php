@@ -1,53 +1,72 @@
 @extends('user.layouts.master')
-
 @section('content')
-<div class="container mt-4">
-<div class="card">
-    <div class="card-header">
-        <div class="d-flex align-items-center justify-content-between">
-            <h5 class="card-title m-0 me-2">Data Surat Keterangan Usaha (SKU)</h5>
-            <div class="dropdown">
-                <a href="{{ url('/user/sku_form_add') }}" class="btn btn-sm btn-primary"><i class='bx bxs-plus-square'></i>Tambah</a>
+<div class="container mt-5 mb-5 h-100">
+    <div class="card shadow-lg bg-body rounded">
+        <div class="card-header py-4" style=" background-color:#0c386e; color: #ffffff;">
+            <div class="mx-3">
+                <div class="float-start">
+                    <h5>SURAT KETERANGAN USAHA (SKU)</h5>
+                    <p>Data Surat Keteranga usaha</p>
+                </div>
+                <div class="float-end">
+                    <a href="{{ url('/user/sku_form_add') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Request Surat</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" >
+            <div class="container table-responsive py-3">
+                <table id="table" class="table table-striped table-bordered table-hover tbl-container bdr" style="width:100%" >
+                    <thead style="">
+                        <tr>
+                            <th><span style="font-size: smaller;">#</span></th>
+                            <th><span style="font-size: smaller;">Pekerjaan</span></th>
+                            <th><span style="font-size: smaller;">Type Usaha</span></th>
+                            <th><span style="font-size: smaller;">Lokasi Usaha</span></th>
+                            <th><span style="font-size: smaller;">Mulai Usaha</span></th>
+                            <th><span style="font-size: smaller;">Foto Usaha</span></th>
+                            <th><span style="font-size: smaller;">Action</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $no=1;?>
+                        @foreach ($dataSuratKeteranganUsaha as $rowSuratKeteranganUsaha)
+                            <tr>
+                                <td><span style="font-size: smaller;">{{ $no++ }}</span></td>
+                                <td><span style="font-size: smaller;">{{ $rowSuratKeteranganUsaha->pekerjaan }}</span></td>
+                                <td><span style="font-size: smaller;">{{ $rowSuratKeteranganUsaha->typeUsaha }}</span></td>
+                                <td><span style="font-size: smaller;">{{ $rowSuratKeteranganUsaha->lokasiUsaha }}</span></td>
+                                <td><span style="font-size: smaller;">{{ $rowSuratKeteranganUsaha->mulaiUsaha }}</span></td>
+                                @if ($rowSuratKeteranganUsaha->fotoUsaha != '')
+                                    <td><img src="{{url('images/skusaha/'.$rowSuratKeteranganUsaha->fotoUsaha)}}" width="80" height="80"></td>
+                                @else
+                                <td><img src="{{URL::asset('images/user/image_empty.jpg')}}" alt="" width="80" height="80"></td>
+                                @endif
+                                <td>
+                                    <a href="{{ url('/user/sku_form_edit/'.$rowSuratKeteranganUsaha->id) }}" class="btn btn-sm btn-warning"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer p-4">
+            <div class="float-start">
+                <button class="btn btn-secondary"><i class="fa-solid fa-left-long"></i> Back</button>
             </div>
         </div>
     </div>
-    <div class="table-responsive text-nowrap">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>nik</th>
-                    <th>nama</th>
-                    <th>tempat tanggal Lahir</th>
-                    <th>pekerjaan</th>
-                    <th>status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody class="table-border-bottom-0">
-                @foreach ($dataSuratKeteranganUsaha as $rowSuratKeteranganUsaha)
-                    <tr>
-                        <td><span class="fw-medium"></span></td>
-                        <td><span class="fw-medium">{{ $rowSuratKeteranganUsaha->nik }}</span></td>
-                        <td><span class="fw-medium">{{ $rowSuratKeteranganUsaha->nama }}</span></td>
-                        <td><span class="fw-medium">{{ $rowSuratKeteranganUsaha->tempatLahir }} - {{ $rowSuratKeteranganUsaha->tanggalLahir }}</span></td>
-                        <td><span class="fw-medium">{{ $rowSuratKeteranganUsaha->pekerjaan }}</span></td>
-                        <td><span class="fw-medium">{{ $rowSuratKeteranganUsaha->status }}</span></td>
-                        <td>
-                            <a href="{{ url('/user/sku_data_detail/'.$rowSuratKeteranganUsaha->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>Detail</a>
-                            @if ($rowSuratKeteranganUsaha->status == "ditolak")
-                            <a href="{{ url('/user/sku_form_edit/'.$rowSuratKeteranganUsaha->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>Edit</a>
-                            @endif
-
-                            {{-- <a href="{{ url('/deleteBooks/'.$rowSuratKeteranganUsaha->id) }}" class="btn btn-sm btn-danger"><i class='bx bxs-plus-square'></i>delete</a> --}}
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
 </div>
 <!-- / Content -->
+@endsection
 
+@section('contentx')
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+        $('.dataTables_filter').addClass('float-end');
+        $('.dataTables_paginate').addClass('float-end');
+    });
+</script>
 @endsection

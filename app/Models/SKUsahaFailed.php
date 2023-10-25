@@ -11,7 +11,7 @@ class SKUsahaFailed extends Model
     protected $table = "surat_keterangan_usaha_failed";
 
     protected $fillable = [
-        'sku_id',
-        'skuDesk'
+        'skUsaha_id',
+        'skUsahaDeskFailed'
     ];
 }

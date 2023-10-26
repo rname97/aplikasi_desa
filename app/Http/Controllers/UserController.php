@@ -26,10 +26,7 @@ class UserController extends Controller
             $newName = $request->fotoUser_input;
         }
 
-
-
         $dataSKUsaha= User::find($id);
-
         if($request->ktpStatus_input == "existing"){
 
             $dataSKUsaha->id                = $id;
@@ -52,9 +49,6 @@ class UserController extends Controller
             $dataSKUsaha->alamatKTP         = $request->alamatKTP_input;
             $dataSKUsaha->alamatDomisili    = $request->alamatDomisili_input;
         }
-
-        // dd($dataSKUsaha);
-        // die();
 
         $dataSKUsaha->update();
         Session::flash('alert-class', 'alert-success');

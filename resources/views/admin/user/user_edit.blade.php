@@ -4,9 +4,10 @@
 
 <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Horizontal Layouts</h4>
 <!-- Basic Layout & Basic with Icons -->
-<div class="row">
+<div class="row d-flex justify-content-center">
     <!-- Basic Layout -->
-    <div class="col-xxl">
+
+    <div class="col-sm-9">
         <form method="POST" action="{{ url('/admin/submitEditUser') }}/{{ $rowUser->id }}" enctype="multipart/form-data">
             @csrf
             <div class="card mb-4">
@@ -79,11 +80,12 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <div class="row">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-secondary">Back</button>
-                            <button type="submit" class="btn btn-primary">Send</button>
-                        </div>
+                    <div class="float-start">
+                        <a href="{{ url('/admin/user_data') }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-left-long"></i> Back</a>
+                    </div>
+                    <div class="float-end">
+                        <button type="reset" class="btn btn-danger btn-sm"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+                        <button class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Submit</button>
                     </div>
                 </div>
             </div>

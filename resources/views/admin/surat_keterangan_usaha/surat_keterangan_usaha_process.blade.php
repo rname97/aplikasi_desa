@@ -36,7 +36,7 @@
         </div>
         <br>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-8">
         <div class="card">
             <div class="card-header bg-primary">
                 <div class="d-flex align-items-center justify-content-between">
@@ -147,11 +147,15 @@
                 </div>
             </div>
             <div class="card-footer">
-                    <button class="btn btn-secondary">Back</button>
-                    @if ($rowSKUsaha->status_id == "1")
-                        <button class="btn btn-danger" id="btnSKUFailed">Batalkan</button>
-                        <button class="btn btn-success" id="btnSKUSuccess">Terima</button>
-                    @endif
+                    <div class="float-start">
+                        <a href="{{ url('/admin/sku_data') }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-left-long"></i> Back</a>
+                    </div>
+                    <div class="float-end">
+                        @if ($rowSKUsaha->status_id == "1")
+                            <button class="btn btn-danger btn-sm" id="btnSKUFailed">Batalkan</button>
+                            <button class="btn btn-success btn-sm" id="btnSKUSuccess">Terima</button>
+                        @endif
+                    </div>
             </div>
         </div>
         <br>
@@ -160,25 +164,26 @@
                 <div class="card-header d-flex align-items-center justify-content-between bg-success">
                     <h5 class="mb-0 text-white">Form Terima</h5>
                 </div>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('admin.submitProccessSKUsahaSuccess') }}">
+                <div class="card-body px-5 py-4">
+                    <form method="POST" action="{{ route('admin.submitProccessSKUsahaSuccess') }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="sku_id" class="form-control" value="{{$rowSKUsaha->id}}"/>
+
+                        <input type="hidden" name="skUsaha_id_input" class="form-control" value="{{$rowSKUsaha->id}}"/>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">Status</label>
-                            <div class="col-sm-10">
-                                <input type="text"  class="form-control"  id="" value="diterima" disabled>
+                            <label class="col-sm-3 col-form-label" for="basic-default-company">Status</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="skUsahaStatus_input" class="form-control"  value="2">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">File SKU</label>
-                            <div class="col-sm-10">
-                                <input type="file" name="bookImageCover" class="form-control" id="basic-default-company"/>
+                            <label class="col-sm-3 col-form-label" for="basic-default-company">File SKU</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="skUsahaFile_input" class="form-control"/>
                             </div>
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Send</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Send</button>
                             </div>
                         </div>
                     </form>
@@ -190,25 +195,25 @@
                 <div class="card-header d-flex align-items-center justify-content-between bg-danger">
                     <h5 class="mb-0 text-white">Form Gagal</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body px-5 py-4">
                     <form method="POST" action="{{ route('admin.submitProccessSKUsahaFailed') }}">
                         @csrf
-                        <input type="hidden" name="sku_id" class="form-control" value="{{$rowSKUsaha->id}}"/>
+                        <input type="hidden" name="skUsaha_id_input" class="form-control" value="{{$rowSKUsaha->id}}"/>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">Status</label>
-                            <div class="col-sm-10">
-                                <input type="text"  class="form-control"  id="" value="ditolak" disabled>
+                            <label class="col-sm-3 col-form-label" for="basic-default-company">Status</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="skUsahaStatus_input" class="form-control"  value="3">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-company">Keterangan</label>
-                            <div class="col-sm-10">
-                                <textarea name="skuDesk"  class="form-control" id="" cols="30" rows="10"></textarea>
+                            <label class="col-sm-3 col-form-label" for="basic-default-company">Keterangan</label>
+                            <div class="col-sm-9">
+                                <textarea name="skUsahaDeskFailed_input" class="form-control" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Send</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Send</button>
                             </div>
                         </div>
                     </form>

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Status;
 use App\Models\SKUsaha;
 use Illuminate\Http\Request;
+use App\Models\SKUsahaFailed;
+use App\Models\SKUsahaSuccess;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
@@ -14,17 +17,18 @@ use Illuminate\Support\Facades\Validator;
 class SKUsahaController extends Controller
 {
     public function show(){
-
-        $dataSKUsaha = SKUsaha::all();
-
-        $data = ['dataSuratKeteranganUsaha' => $dataSKUsaha];
+        $rowAuthUser = Auth::user();
+        $dataSKUsaha = SKUsaha::where('user_id', $rowAuthUser->id)->get();
+        $dataStatus  = Status::all();
+        $data        = ['dataSuratKeteranganUsaha' => $dataSKUsaha, 'dataStatus' => $dataStatus];
+        // dd($data);
         return view('user.surat_keterangan_usaha.surat_keterangan_usaha_data', $data);
     }
 
 
     public function viewAddSKUsaha(){
-        $id = 1;
-        $rowUser = User::find($id);
+        $rowAuthUser = Auth::user();
+        $rowUser = User::find($rowAuthUser->id);
         $data = ['rowUser' => $rowUser];
         return view('user.surat_keterangan_usaha.surat_keterangan_usaha_add', $data);
     }
@@ -121,8 +125,18 @@ class SKUsahaController extends Controller
 
 
     public function viewDetailSKUsaha($id){
-        $rowSKUsaha= SKUsaha::find($id);
-        $data = ['rowSKUsaha' => $rowSKUsaha];
+        $rowAuthUser    = Auth::user();
+        $rowUser        = User::find($rowAuthUser->id);
+        $rowSKUsaha     = SKUsaha::find($id);
+        $rowSKUsahaProses = null;
+        if($rowSKUsaha->status_id == 2){
+            $rowSKUsahaProses = SKUsahaSuccess::where('skUsaha_id', $rowSKUsaha->id)->first();
+        }else if($rowSKUsaha->status_id == 3){
+            $rowSKUsahaProses = SKUsahaFailed::where('skUsaha_id', $rowSKUsaha->id)->first();
+        }
+        $dataStatus     = Status::all();
+        $data           = ['rowUser' => $rowUser, 'rowSKUsaha' => $rowSKUsaha, 'rowSKUsahaProses'=>$rowSKUsahaProses, 'dataStatus' => $dataStatus, ];
+        // dd($data);
         return view('user.surat_keterangan_usaha.surat_keterangan_usaha_data_detail', $data);
     }
 }

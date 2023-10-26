@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SKUsahaSuccess extends Model
+class Status extends Model
 {
     use HasFactory;
-    protected $table = "surat_keterangan_usaha_success";
+
+    protected $table = "status";
 
     protected $fillable = [
-        'skUsaha_id',
-        'skUsahaFile'
+        'status',
+        'statusDeskripsi'
     ];
 }

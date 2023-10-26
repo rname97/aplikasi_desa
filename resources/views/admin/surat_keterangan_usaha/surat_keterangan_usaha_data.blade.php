@@ -16,10 +16,11 @@
                         <th>#</th>
                         <th>Nik</th>
                         <th>Nama</th>
-                        <th>pekerjaan</th>
-                        <th>type Usaha</th>
-                        <th>lokasi Usaha</th>
-                        <th>mulai Usaha</th>
+                        <th>Pekerjaan</th>
+                        <th>Type Usaha</th>
+                        <th>Lokasi Usaha</th>
+                        <th>Mulai Usaha</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -38,6 +39,11 @@
                             <td><span class="fw-medium">{{ $rowSuratKeteranganUsaha->typeUsaha }}</span></td>
                             <td><span class="fw-medium">{{ $rowSuratKeteranganUsaha->lokasiUsaha }}</span></td>
                             <td><span class="fw-medium">{{ $rowSuratKeteranganUsaha->mulaiUsaha }}</span></td>
+                            @foreach ($dataStatus as $rowStatus)
+                                @if ($rowStatus->id ==  $rowSuratKeteranganUsaha->status_id)
+                                    <td><span class="fw-medium">{{ $rowStatus->status }}</span></td>
+                                @endif
+                            @endforeach
                             <td>
                                 <a href="{{ url('/admin/sku_form_process/'.$rowSuratKeteranganUsaha->id.'/'.$rowSuratKeteranganUsaha->user_id) }}" class="btn btn-sm btn-primary"><i class='bx bxs-plus-square'></i>Process</a>
                                 <a href="{{ url('/admin/deleteSKUsaha/'.$rowSuratKeteranganUsaha->id) }}" class="btn btn-sm btn-danger"><i class='bx bxs-plus-square'></i>delete</a>

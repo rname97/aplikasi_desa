@@ -13,7 +13,6 @@
                 <div class="card shadow-lg bg-body rounded">
                     <div class="card-header py-4" style="background-color:#0c386e; color: #ffffff;">
                         <div class="mx-3">
-
                             <div class="float-start">
                                 <h5>PPROFIL USER</h5>
                             </div>

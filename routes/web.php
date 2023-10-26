@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth:admin']], function() {
     //===========================SKU===========================
     Route::get('/admin/sku_data', [SKUsahaAdminController::class, 'show'])->name('admin.sku_data');
     Route::get('/admin/sku_form_process/{skUsahaID}/{userID}', [SKUsahaAdminController::class, 'viewProcessSKUsaha'])->name('admin.sku_form_process');
-    Route::post('/admin/submitProccessSKUsahaSuccess', [SKUsahaAdminController::class, 'processSKUsahaSuccess'])->name('admin.submitProccessSKUsahaSuccess');
+    Route::post('/admin/submitProccessSKUsahaSuccess', [SKUsahaAdminController::class, 'proccessSKUsahaSuccess'])->name('admin.submitProccessSKUsahaSuccess');
     Route::post('/admin/submitProccessSKUsahaFailed', [SKUsahaAdminController::class, 'processSKUsahaFailed'])->name('admin.submitProccessSKUsahaFailed');
     Route::get('/admin/deleteSKUsaha/{id}', [SKUsahaAdminController::class, 'deleteSKUsaha']);
 
@@ -137,7 +137,7 @@ Route::group(['middleware' => ['auth:web']], function() {
     Route::post('/user/submitAddSKUsaha', [SKUsahaController::class, 'addSKUsaha'])->name('user.submitAddSKUsaha');
     Route::get('/user/sku_form_edit/{id}', [SKUsahaController::class, 'viewEditSKUsaha'])->name('user.sku_form_edit.id');
     Route::post('/user/submitEditSKUsaha/{id}', [SKUsahaController::class, 'submitEditSKUsaha']);
-    Route::get('/user/sku_data_detail/{id}', [SKUsahaController::class, 'viewDetailSKUsaha'])->name('user.sku_data_detail');
+    Route::get('/user/sku_data_detail/{id}', [SKUsahaController::class, 'viewDetailSKUsaha'])->name('user.sku_data_detail.id');
 
 
     // ===========KTP===================

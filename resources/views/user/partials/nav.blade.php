@@ -107,10 +107,10 @@
                     @if (Auth::check())
                         <div class="btn-group">
                             <a class="nav-link dropdown-toggle link-light text-nowrap" href="#" role="button" data-bs-toggle="dropdown"  data-bs-display="static"  aria-expanded="false">
-                                User
+                                {{Auth::user()->name}}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a class="dropdown-item" href="{{ url('/user/profile/1') }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/user/profile/'. Auth::user()->id) }}">Profile</a></li>
                                 <li>
                                     <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout
@@ -123,7 +123,7 @@
                         </div>
                     @endif
                 @else
-                        <div class="text-nowrap">
+                    <div class="text-nowrap">
 
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="px-2 link-light text-decoration-none">Sign Up</a>

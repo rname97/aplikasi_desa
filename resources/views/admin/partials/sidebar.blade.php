@@ -87,6 +87,24 @@
                 <div data-i18n="Icons">SKU</div>
             </a>
         </li>
+        <li class="menu-item {{ (request()->is('admin/spktp*')) ? 'active open' : '' }}">
+            <a href="{{ url('/admin/spktp_data') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                <div data-i18n="Icons">SPKTP</div>
+            </a>
+        </li>
+        <li class="menu-item {{ (request()->is('admin/spkk*')) ? 'active open' : '' }}">
+            <a href="{{ url('/admin/spkk_data') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                <div data-i18n="Icons">SPKK</div>
+            </a>
+        </li>
+        <li class="menu-item {{ (request()->is('admin/spm*')) ? 'active open' : '' }}">
+            <a href="{{ url('/admin/spm_data') }}" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
+                <div data-i18n="Icons">SPM</div>
+            </a>
+        </li>
         <li class="menu-item {{ (request()->is('admin/user*')) ? 'active open' : '' }}">
             <a href="{{ url('/admin/user_data') }}" class="menu-link">
                 <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>

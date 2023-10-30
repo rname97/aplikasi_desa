@@ -97,7 +97,7 @@
                         <li><a class="dropdown-item" href="{{ url('/user/sku_data') }}">Pembuatan SKU</a></li>
                         <li><a class="dropdown-item" href="{{ url('/user/spktp_data') }}">Pembuatan SPKTP</a></li>
                         <li><a class="dropdown-item" href="{{ url('/user/spkk_data') }}">Pembuatan SPKK</a></li>
-                        <li><a class="dropdown-item" href="#">Pengaduan Masarakat</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/user/spm_data') }}">Pengaduan Masarakat</a></li>
                     </ul>
                 </li>
             </ul>

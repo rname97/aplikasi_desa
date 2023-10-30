@@ -11,14 +11,10 @@ class SPKTP extends Model
     protected $table = "surat_pengantar_ktp";
 
     protected $fillable = [
-        'nik',
-        'nama',
-        'tempatLahir',
-        'tanggalLahir',
-        'pekerjaan',
-        'alamat',
-        'status',
+        'noKartuKeluarga',
+        'fotoKartuKeluarga',
         'user_id',
         'admin_id',
+        'status_id',
     ];
 }

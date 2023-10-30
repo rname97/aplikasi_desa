@@ -31,7 +31,7 @@
                             <td><span class="fw-medium">{{ $rowUser->email }}</span></td>
                             <td><span class="fw-medium">{{ $rowUser->name }}</span></td>
                             <td>
-                                <a href="{{ url('/admin/user_form_edit/'.$rowUser->id) }}" class="btn btn-sm btn-secondary"><i class='bx bxs-plus-square'></i>edit</a>
+                                <a href="{{ url('/admin/user_form_edit/'.$rowUser->id) }}" class="btn btn-sm btn-info"><i class='bx bxs-plus-square'></i>edit</a>
                                 <a href="{{ url('/admin/deleteUser/'.$rowUser->id) }}" class="btn btn-sm btn-danger"><i class='bx bxs-plus-square'></i>delete</a>
                             </td>
                         </tr>

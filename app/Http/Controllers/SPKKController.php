@@ -3,81 +3,126 @@
 namespace App\Http\Controllers;
 
 use App\Models\SPKK;
+use App\Models\User;
+use App\Models\Status;
+use App\Models\SPKKFailed;
+use App\Models\SPKKSuccess;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class SPKKController extends Controller
 {
     public function show(){
-        $dataSPKK = SPKK::all();
-        $data = ['dataSPKK' => $dataSPKK];
+        $rowAuthUser = Auth::user();
+        $rowUser = User::find($rowAuthUser->id);
+        $dataSPKK = SPKK::where('user_id', $rowAuthUser->id)->get();
+        $dataStatus  = Status::all();
+        $data        = ['dataSuratPengantarKK' => $dataSPKK, 'dataStatus' => $dataStatus, 'rowUser' => $rowUser];
+        // dd($data);
         return view('user.surat_pengantar_kk.surat_pengantar_kk_data', $data);
     }
 
+
     public function viewAddSPKK(){
-        return view('user.surat_pengantar_kk.surat_pengantar_kk_add');
+        $rowAuthUser = Auth::user();
+        $rowUser = User::find($rowAuthUser->id);
+        $data = ['rowUser' => $rowUser];
+        return view('user.surat_pengantar_kk.surat_pengantar_kk_add', $data);
     }
 
     public function addSPKK(Request $request){
         $validator = Validator::make($request->all(), [
-            'nik_input' => 'required',
-            'nama_input' => 'required',
-            'tempatLahir_input' => 'required',
-            'tanggalLahir_input' => 'required',
-            'pekerjaan_input' => 'required',
-            'alamat_input' => 'required',
+            'noKartuKeluarga_input' => 'required',
+            // 'fotoKartuKeluarga_input.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'user_id_input' => 'required',
        ]);
+
+       $filename = '';
+
+        // if($request->hasFile('fotoKartuKeluarga_input')){
+        //     $image= $request->file('fotoKartuKeluarga_input');
+        //     $extension= $image->getClientOriginalExtension();
+        //     $filename = time().'.'.$extension;
+        //     $image->move('images/spkk/', $filename);
+        // }
 
        if ($validator->fails()) {
             return redirect()->Back()->withInput()->withErrors($validator);
        }else{
             $dataSPKK= new SPKK();
-            $dataSPKK->nik        = $request->nik_input;
-            $dataSPKK->nama      = $request->nama_input;
-            $dataSPKK->tempatLahir     = $request->tempatLahir_input;
-            $dataSPKK->tanggalLahir    = $request->tanggalLahir_input;
-            $dataSPKK->pekerjaan   = $request->pekerjaan_input;
-            $dataSPKK->alamat      = $request->alamat_input;
-            $dataSPKK->status         = "proccess";
-            $dataSPKK->user_id     = 1;
-            $dataSPKK->admin_id     = 1;
+            $dataSPKK->noKartuKeluarga    = $request->noKartuKeluarga_input;
+            // $dataSPKK->fotoKartuKeluarga     = $filename;
+            $dataSPKK->user_id       = $request->user_id_input;
+            $dataSPKK->admin_id      = "1";
+            $dataSPKK->status_id     = "1";
             $dataSPKK->save();
             Session::flash('alert-class', 'alert-success');
             Session::flash('message','Record inserted successfully.');
          }
-         return redirect('/user/sku_data');
+         return redirect('/user/spkk_data');
     }
 
 
     public function viewEditSPKK($id){
+        $idUser = 1;
+        $rowUser = User::find($idUser);
         $rowSPKK= SPKK::find($id);
-        $data = ['rowSPKK' => $rowSPKK];
+        $data = ['rowSPKK' => $rowSPKK, 'rowUser' => $rowUser];
         return view('user.surat_pengantar_kk.surat_pengantar_kk_edit', $data);
     }
 
+
     public function submitEditSPKK(Request $request, $id){
+
+        $validator = Validator::make($request->all(), [
+            'noKartuKeluarga_input' => 'required',
+            'user_id_input' => 'required',
+       ]);
+
+        $newName = '';
+        if($request->hasFile('fotoKartuKeluarga_input')){
+            $image= $request->file('fotoKartuKeluarga_input');
+            $extension= $image->getClientOriginalExtension();
+            $newName = time().'.'.$extension;
+            $image->move('images/spkk/', $newName);
+        }else{
+            $newName = $request->fotoKartuKeluarga_inputCurent;
+        }
+
+        if ($validator->fails()) {
+            return redirect()->Back()->withInput()->withErrors($validator);
+       }else{
             $dataSPKK= SPKK::find($id);
-            $dataSPKK->nik           = $request->nik_input;
-            $dataSPKK->nama          = $request->nama_input;
-            $dataSPKK->tempatLahir   = $request->tempatLahir_input;
-            $dataSPKK->tanggalLahir  = $request->tanggalLahir_input;
-            $dataSPKK->pekerjaan     = $request->pekerjaan_input;
-            $dataSPKK->alamat        = $request->alamat_input;
-            $dataSPKK->status        = "proccess";
-            $dataSPKK->user_id       = 1;
-            $dataSPKK->admin_id      = 1;
+            $dataSPKK->noKartuKeluarga    = $request->noKartuKeluarga_input;
+            // $dataSPKK->fotoKartuKeluarga     = $newName;
+            $dataSPKK->user_id       = $request->user_id_input;
+            $dataSPKK->admin_id      = "1";
+            $dataSPKK->status_id     = "1";
+
             $dataSPKK->update();
             Session::flash('alert-class', 'alert-success');
             Session::flash('message','Record inserted successfully.');
-            return redirect('/user/sku_data');
-        }
+       }
+        return redirect('/user/spkk_data');
+    }
 
 
 
     public function viewDetailSPKK($id){
-        $rowSPKK= SPKK::find($id);
-        $data = ['rowSPKK' => $rowSPKK];
+        $rowAuthUser    = Auth::user();
+        $rowUser        = User::find($rowAuthUser->id);
+        $rowSPKK       = SPKK::find($id);
+        $rowSPKKProses = null;
+        if($rowSPKK->status_id == 2){
+            $rowSPKKProses = SPKKSuccess::where('SPKK_id', $rowSPKK->id)->first();
+        }else if($rowSPKK->status_id == 3){
+            $rowSPKKProses = SPKKFailed::where('SPKK_id', $rowSPKK->id)->first();
+        }
+        $dataStatus     = Status::all();
+        $data           = ['rowUser' => $rowUser, 'rowSPKK' => $rowSPKK, 'rowSPKKProses'=>$rowSPKKProses, 'dataStatus' => $dataStatus, ];
+        // dd($data);
         return view('user.surat_pengantar_kk.surat_pengantar_kk_data_detail', $data);
     }
 }

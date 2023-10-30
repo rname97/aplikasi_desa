@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SPMController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SPKKController;
 use App\Http\Controllers\UserController;
@@ -13,8 +14,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\SPMAdminController;
 use App\Http\Controllers\Admin\HomeAdminController;
+use App\Http\Controllers\Admin\SPKKAdminController;
 use App\Http\Controllers\Admin\UserAdminController;
+use App\Http\Controllers\Admin\SPKTPAdminController;
 use App\Http\Controllers\Admin\SKUsahaAdminController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 
@@ -62,9 +66,36 @@ Route::group(['middleware' => ['auth:admin']], function() {
     //===========================SKU===========================
     Route::get('/admin/sku_data', [SKUsahaAdminController::class, 'show'])->name('admin.sku_data');
     Route::get('/admin/sku_form_process/{skUsahaID}/{userID}', [SKUsahaAdminController::class, 'viewProcessSKUsaha'])->name('admin.sku_form_process');
-    Route::post('/admin/submitProccessSKUsahaSuccess', [SKUsahaAdminController::class, 'proccessSKUsahaSuccess'])->name('admin.submitProccessSKUsahaSuccess');
-    Route::post('/admin/submitProccessSKUsahaFailed', [SKUsahaAdminController::class, 'processSKUsahaFailed'])->name('admin.submitProccessSKUsahaFailed');
+    Route::post('/admin/submitProcessSKUsahaSuccess', [SKUsahaAdminController::class, 'processSKUsahaSuccess'])->name('admin.submitProcessSKUsahaSuccess');
+    Route::post('/admin/submitProccessSKUsahaFailed', [SKUsahaAdminController::class, 'processSKUsahaFailed'])->name('admin.submitProcessSKUsahaFailed');
     Route::get('/admin/deleteSKUsaha/{id}', [SKUsahaAdminController::class, 'deleteSKUsaha']);
+
+    //===========================SPKTP===========================
+    Route::get('/admin/spktp_data', [SPKTPAdminController::class, 'show'])->name('admin.spktp_data');
+    Route::get('/admin/spktp_form_process/{spktpID}/{userID}', [SPKTPAdminController::class, 'viewProcessSPKTP'])->name('admin.spktp_form_process');
+    Route::post('/admin/submitProcessSPKTPSuccess', [SPKTPAdminController::class, 'processSPKTPSuccess'])->name('admin.submitProcessSPKTPSuccess');
+    Route::post('/admin/submitProcessSPKTPFailed', [SPKTPAdminController::class, 'processSPKTPFailed'])->name('admin.submitProcessSPKTPFailed');
+    Route::get('/admin/deleteSPKTP/{id}', [SPKTPAdminController::class, 'deleteSPKTP']);
+
+
+
+    //===========================SPKK===========================
+    Route::get('/admin/spkk_data', [SPKKAdminController::class, 'show'])->name('admin.spkk_data');
+    Route::get('/admin/spkk_form_process/{spkkID}/{userID}', [SPKKAdminController::class, 'viewProcessSPKK'])->name('admin.spkk_form_process');
+    Route::post('/admin/submitProcessSPKKSuccess', [SPKKAdminController::class, 'processSPKKSuccess'])->name('admin.submitProcessSPKKSuccess');
+    Route::post('/admin/submitProcessSPKKFailed', [SPKKAdminController::class, 'processSPKKFailed'])->name('admin.submitProcessSPKKFailed');
+    Route::get('/admin/deleteSPKK/{id}', [SPKKAdminController::class, 'deleteSPKK']);
+
+
+    //===========================SPM===========================
+    Route::get('/admin/spm_data', [SPMAdminController::class, 'show'])->name('admin.spm_data');
+    Route::get('/admin/spm_form_process/{spmID}/{userID}', [SPMAdminController::class, 'viewProcessSPM'])->name('admin.spm_form_process');
+    Route::post('/admin/submitProcessSPM', [SPMAdminController::class, 'processSPM'])->name('admin.submitProcessSPM');
+    Route::get('/admin/deleteSPM/{id}', [SPMAdminController::class, 'deleteSPM']);
+
+
+
+
 
 
 
@@ -146,16 +177,34 @@ Route::group(['middleware' => ['auth:web']], function() {
     Route::post('/user/submitAddSPKTP', [SPKTPController::class, 'addSPKTP'])->name('user.submitAddSPKTP');
     Route::get('/user/spktp_form_edit/{id}', [SPKTPController::class, 'viewEditSPKTP'])->name('user.spktp_form_edit.id');
     Route::post('/user/submitEditSPKTP/{id}', [SPKTPController::class, 'submitEditSPKTP']);
-    Route::get('/user/spktp_data_detail/{id}', [SPKTPController::class, 'viewDetailSPKTP'])->name('user.spktp_data_detail');
+    Route::get('/user/spktp_data_detail/{id}', [SPKTPController::class, 'viewDetailSPKTP'])->name('user.spktp_data_detail.id');
+
+
+    // ===========KK===================
+    Route::get('/user/spkk_data', [SPKKController::class, 'show'])->name('user.spkk_data');
+    Route::get('/user/spkk_form_add', [SPKKController::class, 'viewAddSPKK'])->name('user.spkk_form_add');
+    Route::post('/user/submitAddSPKK', [SPKKController::class, 'addSPKK'])->name('user.submitAddSPKK');
+    Route::get('/user/spkk_form_edit/{id}', [SPKKController::class, 'viewEditSPKK'])->name('user.spkk_form_edit.id');
+    Route::post('/user/submitEditSPKK/{id}', [SPKKController::class, 'submitEditSPKK']);
+    Route::get('/user/spkk_data_detail/{id}', [SPKKController::class, 'viewDetailSPKK'])->name('user.spkk_data_detail.id');
+
+
+    // ===========SPM===================
+    Route::get('/user/spm_data', [SPMController::class, 'show'])->name('user.spm_data');
+    Route::get('/user/spm_form_add', [SPMController::class, 'viewAddSPM'])->name('user.spm_form_add');
+    Route::post('/user/submitAddSPM', [SPMController::class, 'addSPM'])->name('user.submitAddSPM');
+    Route::get('/user/spm_form_edit/{id}', [SPMController::class, 'viewEditSPM'])->name('user.spm_form_edit.id');
+    Route::post('/user/submitEditSPM/{id}', [SPMController::class, 'submitEditSPM']);
+    Route::get('/user/spm_data_detail/{id}', [SPMController::class, 'viewDetailSPM'])->name('user.spm_data_detail.id');
 
 
      // ===========KK===================
-     Route::get('/user/spkk_data', [SPKKController::class, 'show'])->name('user.spkk_data');
-     Route::get('/user/spkk_form_add', [SPKKController::class, 'viewAddSPKK'])->name('user.spkk_form_add');
-     Route::post('/user/submitAddSPKK', [SPKKController::class, 'addSPKK'])->name('user.submitAddSPKK');
-     Route::get('/user/spkk_form_edit/{id}', [SPKKController::class, 'viewEditSPKK'])->name('user.spkk_form_edit.id');
-     Route::post('/user/submitEditSPKK/{id}', [SPKKController::class, 'submitEditSPKK']);
-     Route::get('/user/spkk_data_detail/{id}', [SPKKController::class, 'viewDetailSPKK'])->name('user.spkk_data_detail');
+    //  Route::get('/user/spkk_data', [SPKKController::class, 'show'])->name('user.spkk_data');
+    //  Route::get('/user/spkk_form_add', [SPKKController::class, 'viewAddSPKK'])->name('user.spkk_form_add');
+    //  Route::post('/user/submitAddSPKK', [SPKKController::class, 'addSPKK'])->name('user.submitAddSPKK');
+    //  Route::get('/user/spkk_form_edit/{id}', [SPKKController::class, 'viewEditSPKK'])->name('user.spkk_form_edit.id');
+    //  Route::post('/user/submitEditSPKK/{id}', [SPKKController::class, 'submitEditSPKK']);
+    //  Route::get('/user/spkk_data_detail/{id}', [SPKKController::class, 'viewDetailSPKK'])->name('user.spkk_data_detail');
 
       // ===========Pengaduan Masarakat===================
     //   Route::get('/user/SPKK_data', [SPKTPController::class, 'show'])->name('user.SPKK_data');

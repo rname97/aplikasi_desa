@@ -13,6 +13,6 @@ class SPKTPFailed extends Model
 
     protected $fillable = [
         'spktp_id',
-        'spktpDesk'
+        'spktpDeskFailed'
     ];
 }

@@ -44,6 +44,28 @@
                                         <input type="text" name="tanggalLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tanggal Lahir" disabled value="{{$rowUser->tanggalLahir}}"/>
                                     </div>
                                 </div>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="row mb-3">
+                                        <label class="col-md-3 col-form-label" for="basic-default-company">alamat KTP</label>
+                                        <div class="col-md-9">
+                                            <textarea name="" id="" class="form-control" placeholder="Input Alamat" disabled >{{$rowUser->alamatKTP}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label class="col-md-3 col-form-label" for="basic-default-company">alamat Domisili</label>
+                                        <div class="col-md-9">
+                                            <textarea name="" id="" class="form-control"  placeholder="Input Alamat" disabled >{{$rowUser->alamatDomisili}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <p>
+                                        <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            Show Data
+                                        </a>
+                                    </p>
+                                </div>
+                                <hr>
                                 <div class="row mb-3">
                                     <label class="col-md-3 col-form-label" for="basic-default-company">Pekerjaan</label>
                                     <div class="col-md-9">
@@ -75,12 +97,13 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <br>
+
 
                         {{-- ============================== --}}
                         <div class="px-5">
                             <div class="px-3">
+                                <hr>
+                                <br>
                                 <div class="row mb-3">
                                     <label class="col-md-3 col-form-label" for="basic-default-company">Status</label>
                                     <div class="col-md-9">

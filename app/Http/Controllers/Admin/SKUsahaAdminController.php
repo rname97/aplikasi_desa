@@ -30,7 +30,7 @@ class SKUsahaAdminController extends Controller
         return view('admin.surat_keterangan_usaha.surat_keterangan_usaha_process', $data);
     }
 
-    public function proccessSKUsahaSuccess(Request $request){
+    public function processSKUsahaSuccess(Request $request){
         $validator = Validator::make($request->all(), [
                 'skUsaha_id_input' => 'required',
                 'skUsahaStatus_input' => 'required',
@@ -104,6 +104,16 @@ class SKUsahaAdminController extends Controller
 
 
     public function deleteSKUsaha($id){
+        $rowSKUsahaFailed = SKUsahaFailed::where('skUsaha_id', $id)->first();
+        if(null != $rowSKUsahaFailed){
+            $rowSKUsahaFailed->delete();
+        }
+
+        $rowSKUsahaSuccess = SKUsahaSuccess::where('skUsaha_id', $id)->first();
+        if(null != $rowSKUsahaSuccess){
+            $rowSKUsahaSuccess->delete();
+        }
+
         $skUsaha = SKUsaha::find($id);
         $skUsaha->delete();
         return redirect('/admin/sku_data');

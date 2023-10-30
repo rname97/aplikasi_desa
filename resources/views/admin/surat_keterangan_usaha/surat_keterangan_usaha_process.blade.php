@@ -165,7 +165,7 @@
                     <h5 class="mb-0 text-white">Form Terima</h5>
                 </div>
                 <div class="card-body px-5 py-4">
-                    <form method="POST" action="{{ route('admin.submitProccessSKUsahaSuccess') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.submitProcessSKUsahaSuccess') }}" enctype="multipart/form-data">
                         @csrf
 
                         <input type="hidden" name="skUsaha_id_input" class="form-control" value="{{$rowSKUsaha->id}}"/>
@@ -196,7 +196,7 @@
                     <h5 class="mb-0 text-white">Form Gagal</h5>
                 </div>
                 <div class="card-body px-5 py-4">
-                    <form method="POST" action="{{ route('admin.submitProccessSKUsahaFailed') }}">
+                    <form method="POST" action="{{ route('admin.submitProcessSKUsahaFailed') }}">
                         @csrf
                         <input type="hidden" name="skUsaha_id_input" class="form-control" value="{{$rowSKUsaha->id}}"/>
                         <div class="row mb-3">

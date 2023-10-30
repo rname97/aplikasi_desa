@@ -7,45 +7,7 @@
     <!-- Basic Layout -->
     <form method="POST" action="{{ route('user.submitAddSKUsaha') }}">
         @csrf
-        <div class="row h-100">
-            <div class="col-sm-4">
-                <div class="card shadow-lg bg-body rounded">
-                    <div class="card-header py-4" style="background-color:#0c386e; color: #ffffff;">
-                        <div class="mx-3">
-                            <div class="float-end">
-                                <i class="fa-solid fa-file-lines fa-2x"></i>
-                            </div>
-                            <div class="float-start">
-                                <h4>Profil</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body py-4">
-                        <div class="d-flex justify-content-center">
-                            <div>
-                                <img src="..." class="rounded mx-auto d-block" alt="...">
-                            </div>
-                            <br>
-
-                            <div>
-                                <h1>Test</h1>
-                            </div>
-
-
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                          </div>
-                          <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                          </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="row h-100 d-flex justify-content-center">
             <div class="col-sm-8">
                 <div class="card shadow-lg bg-body rounded">
                     <div class="card-header py-4" style="background-color:#0c386e; color: #ffffff;">
@@ -54,7 +16,7 @@
                                 <i class="fa-solid fa-file-lines fa-3x"></i>
                             </div>
                             <div class="float-start">
-                                <h5>DETAIL PENDAFTARAN SURAT KETERANGAN USAHA (SKU)</h5>
+                                <h5>DETAIL PENDAFTARAN SURAT PENGANTAR KTP</h5>
                             </div>
                         </div>
                     </div>
@@ -64,63 +26,82 @@
                                 <div class="row mb-3 ">
                                     <label class="col-md-3 col-form-label" for="basic-default-name">Nik</label>
                                     <div class="col-md-9">
-                                    <input type="text" name="nik_input" class="form-control" id="basic-default-name" placeholder="Input Nik" disabled value="123244" />
+                                    <input type="text" name="nik_input" class="form-control" id="basic-default-name" disabled value="{{$rowUser->nik}}" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-3 col-form-label" for="basic-default-company">Nama</label>
                                     <div class="col-md-9">
-                                    <input type="text" name="nama_input" class="form-control" id="basic-default-company" placeholder="Input Nama" disabled value="user" />
+                                    <input type="text" name="nama_input" class="form-control" id="basic-default-company" disabled value="{{$rowUser->name}}" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-md-3 col-form-label" for="basic-default-company">Tempat, Tanggal Lahir</label>
                                     <div class="col-md-5">
-                                        <input type="text" name="tempatLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tempat Lahir" disabled value="Semarang" />
+                                        <input type="text" name="tempatLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tempat Lahir" disabled value="{{$rowUser->tempatLahir}}" />
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" name="tanggalLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tanggal Lahir" disabled value="2003-01-01"/>
+                                        <input type="text" name="tanggalLahir_input" class="form-control" id="basic-default-company" placeholder="Input Tanggal Lahir" disabled value="{{$rowUser->tanggalLahir}}"/>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label" for="basic-default-company">Pekerjaan</label>
-                                    <div class="col-md-9">
-                                    <input type="text" name="pekerjaan_input" class="form-control" id="basic-default-company"  />
+                                <div class="collapse" id="collapseExample">
+                                    <div class="row mb-3">
+                                        <label class="col-md-3 col-form-label" for="basic-default-company">alamat KTP</label>
+                                        <div class="col-md-9">
+                                            <textarea name="" id="" class="form-control" placeholder="Input Alamat" disabled >{{$rowUser->alamatKTP}}</textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label" for="basic-default-company">Type Usaha</label>
-                                    <div class="col-md-9">
-                                    <input type="text" name="pekerjaan_input" class="form-control" id="basic-default-company" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label" for="basic-default-company">Mulai Usaha</label>
-                                    <div class="col-md-9">
-                                        <div class='input-group date' id='datetimepicker'>
-                                            <input type='text' class="form-control" />
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
+                                    <div class="row mb-3">
+                                        <label class="col-md-3 col-form-label" for="basic-default-company">alamat Domisili</label>
+                                        <div class="col-md-9">
+                                            <textarea name="" id="" class="form-control"  placeholder="Input Alamat" disabled >{{$rowUser->alamatDomisili}}</textarea>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="d-flex justify-content-end">
+                                    <p>
+                                        <a class="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            Show Data
+                                        </a>
+                                    </p>
+                                </div>
+                                <hr>
                                 <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label" for="basic-default-company">Foto Bukti Usaha</label>
+                                    <label class="col-md-3 col-form-label" for="basic-default-company">No Kartu Keluarga</label>
                                     <div class="col-md-9">
-                                        <input type="file" name="pekerjaan_input" class="form-control" id="basic-default-company"  />
+                                    <input type="text" name="pekerjaan_input" class="form-control" id="basic-default-company" value="{{$rowSPKTP->noKartuKeluarga}}"/>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-3 col-form-label" for="basic-default-name">Foto Kartu Keluarga</label>
+                                    <div class="col-md-9">
+                                        @if ($rowSPKTP->fotoKartuKeluarga != '')
+                                            <input type="hidden" name="fotoUsaha_inputCurent" class="form-control" id="basic-default-name" value="{{ $rowSPKTP->fotoKartuKeluarga }}">
+                                            <img src="{{url('images/spktp/'.$rowSPKTP->fotoKartuKeluarga)}}" alt="" width="100" height="100">
+                                        @else
+                                            <img src="{{URL::asset('images/user/image_empty.jpg')}}" alt="" width="100" height="100">
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <br>
+
+                        {{-- ============================== --}}
                         <div class="px-5">
                             <div class="px-3">
+                                <hr>
+                                <br>
                                 <div class="row mb-3">
                                     <label class="col-md-3 col-form-label" for="basic-default-company">Status</label>
                                     <div class="col-md-9">
-                                        <button class="btn btn-primary">Proses</button>
+                                        @if ($rowSPKTP->status_id == 1)
+                                            <button type="button" class="btn btn-primary btn-sm py-0" disabled>prossess</button>
+                                        @elseif ($rowSPKTP->status_id == 2)
+                                            <button type="button" class="btn btn-success btn-sm py-0" disabled>diterima</button>
+                                        @elseif ($rowSPKTP->status_id == 3)
+                                            <button type="button" class="btn btn-danger btn-sm py-0" disabled>ditolak</button>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
@@ -132,21 +113,38 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="px-3">
-                                <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label" for="basic-default-company">File Pdf</label>
-                                    <div class="col-md-9">
-                                        <textarea name="" id="" class="form-control"></textarea>
+
+                            @if ($rowSPKTP->status_id == 2)
+                                <div class="px-3">
+                                    <div class="row mb-3">
+                                        <label class="col-md-3 col-form-label" for="basic-default-company">File Pdf</label>
+                                        <div class="col-md-9">
+                                            @if ($rowSPKTP->fotoUsaha != '')
+                                                <input type="hidden" name="fotoUsaha_inputCurent" class="form-control" id="basic-default-name" value="{{ $rowSPKTP->fotoUsaha }}">
+                                                <img src="{{url('images/skusaha/'.$rowSPKTP->fotoUsaha)}}" alt="" width="100" height="100">
+                                            @else
+                                                <img src="{{URL::asset('images/user/image_empty.jpg')}}" alt="" width="100" height="100">
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @elseif ($rowSPKTP->status_id == 3)
+                                <div class="px-3">
+                                    <div class="row mb-3">
+                                        <label class="col-md-3 col-form-label" for="basic-default-company">Deskripsi Masalah</label>
+                                        <div class="col-md-9">
+                                            <textarea name="" class="form-control" disabled>{{ $rowSPKTPProses->spktpDeskFailed}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
-
+                        {{-- ============================== --}}
 
                     </div>
                     <div class="card-footer p-4">
                         <div class="float-start">
-                            <button class="btn btn-secondary"><i class="fa-solid fa-left-long"></i> Back</button>
+                            <a href="{{ url('/user/spktp_data') }}" class="btn btn-secondary btn-sm"><i class="fa-solid fa-left-long"></i> Back</a>
                         </div>
 
                     </div>

@@ -11,14 +11,9 @@ class SPKK extends Model
     protected $table = "surat_pengantar_kk";
 
     protected $fillable = [
-        'nik',
-        'nama',
-        'tempatLahir',
-        'tanggalLahir',
-        'pekerjaan',
-        'alamat',
-        'status',
+        'noKartuKeluarga',
         'user_id',
         'admin_id',
+        'status_id',
     ];
 }

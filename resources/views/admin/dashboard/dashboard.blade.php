@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <div class="small mb-1">Surat Keterangan Usaha</div>
-                                        <button class="btn btn-primary btn-sm py-1">Detail</button>
+                                        <a href="{{ url('/admin/sku_data') }}" class="btn btn-primary btn-sm py-1">Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <div class="small mb-1">Surat Pengajuan KTP</div>
-                                        <button class="btn btn-primary btn-sm py-1">Detail</button>
+                                        <a href="{{ url('/admin/spktp_data') }}" class="btn btn-primary btn-sm py-1">Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <div class="small mb-1">Surat Pengajuan KK</div>
-                                        <button class="btn btn-primary btn-sm py-1">Detail</button>
+                                        <a href="{{ url('/admin/spkk_data') }}" class="btn btn-primary btn-sm py-1">Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="ms-3">
                                         <div class="small mb-1">Pelayanan Masyarakat</div>
-                                        <button class="btn btn-primary btn-sm py-1">Detail</button>
+                                        <a href="{{ url('/admin/spm_data') }}" class="btn btn-primary btn-sm py-1">Detail</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,30 +83,28 @@
             <div class="col-xl-3 col-md-6">
                 <div class="card">
                     <div class="card-header d-flex align-items-center justify-content-between bg-info">
-                        <h5 class="card-title m-0 me-2 text-white">Surat Keterangan Usaha</h5>
+                        <h6 class="card-title m-0 me-2 text-white">Surat Keterangan Usaha</h6>
                     </div>
                     <div class="card-body">
-                        <div class="mb-1 mt-md-1 mb-md-4">
+                        <div class="mb-2 mt-md-2 mb-md-2">
                             <div class="d-flex align-items-center">
                                 <h2 class="mb-0">100</h2>
                                 <span class=" ms-2 fw-medium">
-                                    <small>Surat</small>
+                                    <small>Total Surat</small>
                                 </span>
                             </div>
-                            <small class="mt-1">Total Data Surat Keterangan Usaha</small>
                         </div>
                         <ul class="p-0 m-0">
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
+                            <li class="d-flex mb-1 pb-md-2">
+                                <div class="avatar flex-shrink-0 me-2">
                                     <i class="mdi mdi-cellphone-link mdi-24px"></i>
                                 </div>
                                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                     <div class="me-2">
-                                        <h6 class="mb-0">Prosess</h6>
-                                        <small>Data Surat Diprosess</small>
+                                        <small>Surat Diproses</small>
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
+                                        <h6 class="mb-1">40</h6>
                                         <div class="progress bg-label-info" style="height: 4px">
                                             <div
                                                 class="progress-bar bg-info"
@@ -119,20 +117,19 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
+                            <li class="d-flex mb-1 pb-md-2">
+                                <div class="avatar flex-shrink-0 me-2">
                                     <i class="mdi mdi-cellphone-link mdi-24px"></i>
                                 </div>
                                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                     <div class="me-2">
-                                        <h6 class="mb-0">Diterima</h6>
-                                        <small>Data Surat Diterima</small>
+                                        <small>Surat Diterima</small>
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
+                                        <h6 class="mb-1">30</h6>
                                         <div class="progress bg-label-info" style="height: 4px">
                                             <div
-                                                class="progress-bar bg-info"
+                                                class="progress-bar bg-success"
                                                 style="width: 75%"
                                                 role="progressbar"
                                                 aria-valuenow="75"
@@ -142,20 +139,19 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
+                            <li class="d-flex mb-1 pb-md-2">
+                                <div class="avatar flex-shrink-0 me-2">
                                     <i class="mdi mdi-cellphone-link mdi-24px"></i>
                                 </div>
                                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                     <div class="me-2">
-                                        <h6 class="mb-0">Ditolak</h6>
-                                        <small>Data Surat Ditolak</small>
+                                        <small>Surat Ditolak</small>
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
+                                        <h6 class="mb-1">10</h6>
                                         <div class="progress bg-label-info" style="height: 4px">
                                             <div
-                                                class="progress-bar bg-info"
+                                                class="progress-bar bg-danger"
                                                 style="width: 75%"
                                                 role="progressbar"
                                                 aria-valuenow="75"
@@ -170,125 +166,119 @@
                 </div>
             </div>
             <!--/ Total Earnings -->
-            <!-- Total Earnings -->
-            <div class="col-xl-3 col-md-6">
-                <div class="card">
-                    <div class="card-header d-flex align-items-center justify-content-between bg-info ">
-                        <h5 class="card-title m-0 me-2 text-white">Surat Pengajuan KTP</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-1 mt-md-1 mb-md-4">
-                            <div class="d-flex align-items-center">
-                                <h2 class="mb-0">100</h2>
-                                <span class=" ms-2 fw-medium">
-                                    <small>Surat</small>
-                                </span>
-                            </div>
-                            <small class="mt-1">Total Data Surat Pengajuan KTP</small>
+           <!-- Total Earnings -->
+           <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-between bg-info">
+                    <h6 class="card-title m-0 me-2 text-white">Surat Pengajuan KTP</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-2 mt-md-2 mb-md-2">
+                        <div class="d-flex align-items-center">
+                            <h2 class="mb-0">100</h2>
+                            <span class=" ms-2 fw-medium">
+                                <small>Total Surat</small>
+                            </span>
                         </div>
-                        <ul class="p-0 m-0">
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <i class="mdi mdi-cellphone-link mdi-24px"></i>
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <h6 class="mb-0">Prosess</h6>
-                                        <small>Data Surat Diprosess</small>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
-                                        <div class="progress bg-label-info" style="height: 4px">
-                                            <div
-                                                class="progress-bar bg-info"
-                                                style="width: 75%"
-                                                role="progressbar"
-                                                aria-valuenow="75"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <i class="mdi mdi-cellphone-link mdi-24px"></i>
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <h6 class="mb-0">Diterima</h6>
-                                        <small>Data Surat Diterima</small>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
-                                        <div class="progress bg-label-info" style="height: 4px">
-                                            <div
-                                                class="progress-bar bg-info"
-                                                style="width: 75%"
-                                                role="progressbar"
-                                                aria-valuenow="75"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <i class="mdi mdi-cellphone-link mdi-24px"></i>
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <h6 class="mb-0">Ditolak</h6>
-                                        <small>Data Surat Ditolak</small>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
-                                        <div class="progress bg-label-info" style="height: 4px">
-                                            <div
-                                                class="progress-bar bg-info"
-                                                style="width: 75%"
-                                                role="progressbar"
-                                                aria-valuenow="75"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
+                    <ul class="p-0 m-0">
+                        <li class="d-flex mb-1 pb-md-2">
+                            <div class="avatar flex-shrink-0 me-2">
+                                <i class="mdi mdi-cellphone-link mdi-24px"></i>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                    <small>Surat Diproses</small>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">40</h6>
+                                    <div class="progress bg-label-info" style="height: 4px">
+                                        <div
+                                            class="progress-bar bg-info"
+                                            style="width: 75%"
+                                            role="progressbar"
+                                            aria-valuenow="75"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-1 pb-md-2">
+                            <div class="avatar flex-shrink-0 me-2">
+                                <i class="mdi mdi-cellphone-link mdi-24px"></i>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                    <small>Surat Diterima</small>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">30</h6>
+                                    <div class="progress bg-label-info" style="height: 4px">
+                                        <div
+                                            class="progress-bar bg-success"
+                                            style="width: 75%"
+                                            role="progressbar"
+                                            aria-valuenow="75"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-1 pb-md-2">
+                            <div class="avatar flex-shrink-0 me-2">
+                                <i class="mdi mdi-cellphone-link mdi-24px"></i>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                    <small>Surat Ditolak</small>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">10</h6>
+                                    <div class="progress bg-label-info" style="height: 4px">
+                                        <div
+                                            class="progress-bar bg-danger"
+                                            style="width: 75%"
+                                            role="progressbar"
+                                            aria-valuenow="75"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!--/ Total Earnings -->
+        </div>
+        <!--/ Total Earnings -->
             <!-- Total Earnings -->
             <div class="col-xl-3 col-md-6">
                 <div class="card">
                     <div class="card-header d-flex align-items-center justify-content-between bg-info">
-                        <h5 class="card-title m-0 me-2 text-white">Surat Pengajuan KK</h5>
+                        <h6 class="card-title m-0 me-2 text-white">Surat Pengajuan KK</h6>
                     </div>
                     <div class="card-body">
-                        <div class="mb-1 mt-md-1 mb-md-4">
+                        <div class="mb-2 mt-md-2 mb-md-2">
                             <div class="d-flex align-items-center">
                                 <h2 class="mb-0">100</h2>
                                 <span class=" ms-2 fw-medium">
-                                    <small>Surat</small>
+                                    <small>Total Surat</small>
                                 </span>
                             </div>
-                            <small class="mt-1">Total Data Surat Pengajuan KK</small>
                         </div>
                         <ul class="p-0 m-0">
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
+                            <li class="d-flex mb-1 pb-md-2">
+                                <div class="avatar flex-shrink-0 me-2">
                                     <i class="mdi mdi-cellphone-link mdi-24px"></i>
                                 </div>
                                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                     <div class="me-2">
-                                        <h6 class="mb-0">Prosess</h6>
-                                        <small>Data Surat Diprosess</small>
+                                        <small>Surat Diproses</small>
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
+                                        <h6 class="mb-1">40</h6>
                                         <div class="progress bg-label-info" style="height: 4px">
                                             <div
                                                 class="progress-bar bg-info"
@@ -301,20 +291,19 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
+                            <li class="d-flex mb-1 pb-md-2">
+                                <div class="avatar flex-shrink-0 me-2">
                                     <i class="mdi mdi-cellphone-link mdi-24px"></i>
                                 </div>
                                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                     <div class="me-2">
-                                        <h6 class="mb-0">Diterima</h6>
-                                        <small>Data Surat Diterima</small>
+                                        <small>Surat Diterima</small>
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
+                                        <h6 class="mb-1">30</h6>
                                         <div class="progress bg-label-info" style="height: 4px">
                                             <div
-                                                class="progress-bar bg-info"
+                                                class="progress-bar bg-success"
                                                 style="width: 75%"
                                                 role="progressbar"
                                                 aria-valuenow="75"
@@ -324,20 +313,19 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
+                            <li class="d-flex mb-1 pb-md-2">
+                                <div class="avatar flex-shrink-0 me-2">
                                     <i class="mdi mdi-cellphone-link mdi-24px"></i>
                                 </div>
                                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                     <div class="me-2">
-                                        <h6 class="mb-0">Ditolak</h6>
-                                        <small>Data Surat Ditolak</small>
+                                        <small>Surat Ditolak</small>
                                     </div>
                                     <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
+                                        <h6 class="mb-1">10</h6>
                                         <div class="progress bg-label-info" style="height: 4px">
                                             <div
-                                                class="progress-bar bg-info"
+                                                class="progress-bar bg-danger"
                                                 style="width: 75%"
                                                 role="progressbar"
                                                 aria-valuenow="75"
@@ -352,97 +340,93 @@
                 </div>
             </div>
             <!--/ Total Earnings -->
-            <!-- Total Earnings -->
-            <div class="col-xl-3 col-md-6">
-                <div class="card">
-                    <div class="card-header d-flex align-items-center justify-content-between bg-info">
-                        <h5 class="card-title m-0 me-2 text-white">Pelayanan Masyarakat</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-1 mt-md-1 mb-md-4">
-                            <div class="d-flex align-items-center">
-                                <h2 class="mb-0">100</h2>
-                                <span class="ms-2 fw-medium">
-                                    <small>Surat</small>
-                                </span>
-                            </div>
-                            <small class="mt-1">Total Data Pelayanan Masarakat</small>
+           <!-- Total Earnings -->
+           <div class="col-xl-3 col-md-6">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-between bg-info">
+                    <h6 class="card-title m-0 me-2 text-white">Pelayanan Masyarakat</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-2 mt-md-2 mb-md-2">
+                        <div class="d-flex align-items-center">
+                            <h2 class="mb-0">100</h2>
+                            <span class=" ms-2 fw-medium">
+                                <small>Total Surat</small>
+                            </span>
                         </div>
-                        <ul class="p-0 m-0">
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <i class="mdi mdi-cellphone-link mdi-24px"></i>
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <h6 class="mb-0">Prosess</h6>
-                                        <small>Data Surat Diprosess</small>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
-                                        <div class="progress bg-label-info" style="height: 4px">
-                                            <div
-                                                class="progress-bar bg-info"
-                                                style="width: 75%"
-                                                role="progressbar"
-                                                aria-valuenow="75"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <i class="mdi mdi-cellphone-link mdi-24px"></i>
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <h6 class="mb-0">Diterima</h6>
-                                        <small>Data Surat Diterima</small>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
-                                        <div class="progress bg-label-info" style="height: 4px">
-                                            <div
-                                                class="progress-bar bg-info"
-                                                style="width: 75%"
-                                                role="progressbar"
-                                                aria-valuenow="75"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 pb-md-2">
-                                <div class="avatar flex-shrink-0 me-3">
-                                    <i class="mdi mdi-cellphone-link mdi-24px"></i>
-                                </div>
-                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                    <div class="me-2">
-                                        <h6 class="mb-0">Ditolak</h6>
-                                        <small>Data Surat Ditolak</small>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">$8,6500.20</h6>
-                                        <div class="progress bg-label-info" style="height: 4px">
-                                            <div
-                                                class="progress-bar bg-info"
-                                                style="width: 75%"
-                                                role="progressbar"
-                                                aria-valuenow="75"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
+                    <ul class="p-0 m-0">
+                        <li class="d-flex mb-1 pb-md-2">
+                            <div class="avatar flex-shrink-0 me-2">
+                                <i class="mdi mdi-cellphone-link mdi-24px"></i>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                    <small>Surat Diproses</small>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">40</h6>
+                                    <div class="progress bg-label-info" style="height: 4px">
+                                        <div
+                                            class="progress-bar bg-info"
+                                            style="width: 75%"
+                                            role="progressbar"
+                                            aria-valuenow="75"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-1 pb-md-2">
+                            <div class="avatar flex-shrink-0 me-2">
+                                <i class="mdi mdi-cellphone-link mdi-24px"></i>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                    <small>Surat Diterima</small>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">30</h6>
+                                    <div class="progress bg-label-info" style="height: 4px">
+                                        <div
+                                            class="progress-bar bg-success"
+                                            style="width: 75%"
+                                            role="progressbar"
+                                            aria-valuenow="75"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-1 pb-md-2">
+                            <div class="avatar flex-shrink-0 me-2">
+                                <i class="mdi mdi-cellphone-link mdi-24px"></i>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                    <small>Surat Ditolak</small>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">10</h6>
+                                    <div class="progress bg-label-info" style="height: 4px">
+                                        <div
+                                            class="progress-bar bg-danger"
+                                            style="width: 75%"
+                                            role="progressbar"
+                                            aria-valuenow="75"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!--/ Total Earnings -->
+        </div>
+        <!--/ Total Earnings -->
 
         </div>
     </div>

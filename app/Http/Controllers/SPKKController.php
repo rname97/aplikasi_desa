@@ -28,6 +28,12 @@ class SPKKController extends Controller
     public function viewAddSPKK(){
         $rowAuthUser = Auth::user();
         $rowUser = User::find($rowAuthUser->id);
+        if($rowUser->nik == null || $rowUser->nik == ""){
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message','Silahkan Lengkapi Data Anda.');
+            return redirect('/user/spkk_data');
+        }
+
         $data = ['rowUser' => $rowUser];
         return view('user.surat_pengantar_kk.surat_pengantar_kk_add', $data);
     }
@@ -35,25 +41,16 @@ class SPKKController extends Controller
     public function addSPKK(Request $request){
         $validator = Validator::make($request->all(), [
             'noKartuKeluarga_input' => 'required',
-            // 'fotoKartuKeluarga_input.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'user_id_input' => 'required',
        ]);
 
-       $filename = '';
-
-        // if($request->hasFile('fotoKartuKeluarga_input')){
-        //     $image= $request->file('fotoKartuKeluarga_input');
-        //     $extension= $image->getClientOriginalExtension();
-        //     $filename = time().'.'.$extension;
-        //     $image->move('images/spkk/', $filename);
-        // }
-
        if ($validator->fails()) {
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message','Data Inputan Failed.');
             return redirect()->Back()->withInput()->withErrors($validator);
        }else{
             $dataSPKK= new SPKK();
             $dataSPKK->noKartuKeluarga    = $request->noKartuKeluarga_input;
-            // $dataSPKK->fotoKartuKeluarga     = $filename;
             $dataSPKK->user_id       = $request->user_id_input;
             $dataSPKK->admin_id      = "1";
             $dataSPKK->status_id     = "1";

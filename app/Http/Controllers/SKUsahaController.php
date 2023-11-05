@@ -29,6 +29,11 @@ class SKUsahaController extends Controller
     public function viewAddSKUsaha(){
         $rowAuthUser = Auth::user();
         $rowUser = User::find($rowAuthUser->id);
+        if($rowUser->nik == null || $rowUser->nik == ""){
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message','Silahkan Lengkapi Data Anda.');
+            return redirect('/user/sku_data');
+        }
         $data = ['rowUser' => $rowUser];
         return view('user.surat_keterangan_usaha.surat_keterangan_usaha_add', $data);
     }
@@ -53,6 +58,8 @@ class SKUsahaController extends Controller
         }
 
        if ($validator->fails()) {
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message','Data Inputan Failed.');
             return redirect()->Back()->withInput()->withErrors($validator);
        }else{
             $dataSKUsaha= new SKUsaha();
@@ -103,6 +110,8 @@ class SKUsahaController extends Controller
         }
 
         if ($validator->fails()) {
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message','Data Inputan Failed.');
             return redirect()->Back()->withInput()->withErrors($validator);
        }else{
             $dataSKUsaha= SKUsaha::find($id);

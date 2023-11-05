@@ -34,16 +34,13 @@
     flex-direction: column;
         }
 
-        footer {
-            /* margin-top: auto; */
-            /* position:relative;
-            bottom:0; */
+        /* footer {
 
             clear: both;
     position: relative;
     height: 200px;
     margin-top: -200px;
-        }
+        } */
 
         /* .content {
             position:relative;
@@ -58,9 +55,15 @@
 <body>
     {{-- <div class="container"> --}}
         @include('user.partials.nav')
-        @yield('content')
-
-        @include('user.partials.footer')
+        <section>
+            @yield('content')
+        </section>
+        
+        <section class="mt-5">
+            <div>
+                @include('user.partials.footer')
+            </div>
+        </section>
 
         @include('user.partials.scripts')
         @yield('contentx')

@@ -7,6 +7,7 @@
     <!-- Basic Layout -->
     <form method="POST" action="{{ route('user.submitAddSKUsaha') }}" enctype="multipart/form-data">
         @csrf
+        
         <div class="row h-100 d-flex justify-content-center">
             <div class="col-sm-8">
         <div class="card shadow-lg bg-body rounded">
@@ -26,35 +27,47 @@
                     <div class="row mb-3 ">
                         <label class="col-md-3 col-form-label text-nowrap" for="basic-default-name">Nik</label>
                         <div class="col-md-9">
-                        <input type="text" name="" class="form-control" id="basic-default-name" placeholder="Input Nik" disabled value="{{$rowUser->nik}}" />
+                        <input type="text" name="" class="form-control" id="basic-default-name" disabled value="{{$rowUser->nik}}" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-md-3 col-form-label" for="basic-default-company">Nama</label>
                         <div class="col-md-9">
-                        <input type="text" name="" class="form-control" id="basic-default-company" placeholder="Input Nama" disabled value="{{$rowUser->name}}" />
+                        <input type="text" name="" class="form-control" id="basic-default-company" disabled value="{{$rowUser->name}}" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-md-3 col-form-label" for="basic-default-company">Tempat, Tanggal Lahir</label>
                         <div class="col-md-4">
-                            <input type="text" name="" class="form-control" id="basic-default-company" placeholder="Input Tempat Lahir" disabled value="{{$rowUser->tempatLahir}} " />
+                            <input type="text" name="" class="form-control" id="basic-default-company" disabled value="{{$rowUser->tempatLahir}} " />
                         </div>
                         <div class="col-md-5">
-                            <input type="text" name="" class="form-control" id="basic-default-company" placeholder="Input Tanggal Lahir" disabled value="{{$rowUser->tanggalLahir}}"/>
+                            <input type="text" name="" class="form-control" id="basic-default-company" disabled value="{{$rowUser->tanggalLahir}}"/>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-md-3 col-form-label" for="basic-default-company">Agama</label>
+                        <div class="col-md-9">
+                        <input type="text" name="" class="form-control" id="basic-default-company" disabled value="{{$rowUser->agama}}" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-md-3 col-form-label" for="basic-default-company">No Telp</label>
+                        <div class="col-md-9">
+                        <input type="text" name="" class="form-control" id="basic-default-company" disabled value="{{$rowUser->noTelp}}" />
                         </div>
                     </div>
                     <div class="collapse" id="collapseExample">
                         <div class="row mb-3">
-                            <label class="col-md-3 col-form-label" for="basic-default-company">alamat KTP</label>
+                            <label class="col-md-3 col-form-label" for="basic-default-company">Alamat KTP</label>
                             <div class="col-md-9">
-                                <textarea name="" id="" class="form-control" placeholder="Input Alamat" disabled >{{$rowUser->alamatKTP}}</textarea>
+                                <textarea name="" id="" class="form-control" disabled >{{$rowUser->alamatKTP}}</textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-md-3 col-form-label" for="basic-default-company">alamat Domisili</label>
+                            <label class="col-md-3 col-form-label" for="basic-default-company">Alamat Domisili</label>
                             <div class="col-md-9">
-                                <textarea name="" id="" class="form-control"  placeholder="Input Alamat" disabled >{{$rowUser->alamatDomisili}}</textarea>
+                                <textarea name="" id="" class="form-control" disabled >{{$rowUser->alamatDomisili}}</textarea>
                             </div>
                         </div>
                     </div>

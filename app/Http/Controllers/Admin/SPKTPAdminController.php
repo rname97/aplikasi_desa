@@ -33,7 +33,7 @@ class SPKTPAdminController extends Controller
         $validator = Validator::make($request->all(), [
                 'spktp_id_input'    => 'required',
                 'spktpStatus_input' => 'required',
-                'spktpFile_input.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'spktpFile_input.*' => 'required|mimes:pdf|max:2048',
         ]);
 
         $filename = '';

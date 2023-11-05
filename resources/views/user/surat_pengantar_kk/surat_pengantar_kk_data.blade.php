@@ -1,6 +1,9 @@
 @extends('user.layouts.master')
 @section('content')
 <div class="container mt-5 mb-5 h-100 content">
+    @if(Session::has('message'))
+        <p class="alert {{ Session::get('alert-class') }}">{{ Session::get('message') }}</p>
+    @endif
     <div class="card shadow-lg bg-body rounded  h-100">
         <div class="card-header py-4" style=" background-color:#0c386e; color: #ffffff;">
             <div class="mx-3">

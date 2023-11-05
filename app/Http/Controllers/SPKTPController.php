@@ -28,6 +28,11 @@ class SPKTPController extends Controller
     public function viewAddSPKTP(){
         $rowAuthUser = Auth::user();
         $rowUser = User::find($rowAuthUser->id);
+        if($rowUser->nik == null || $rowUser->nik == ""){
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message','Silahkan Lengkapi Data Anda.');
+            return redirect('/user/spktp_data');
+        }
         $data = ['rowUser' => $rowUser];
         return view('user.surat_pengantar_ktp.surat_pengantar_ktp_add', $data);
     }
@@ -49,6 +54,8 @@ class SPKTPController extends Controller
         }
 
        if ($validator->fails()) {
+            Session::flash('alert-class', 'alert-danger');
+            Session::flash('message','Data Inputan Failed.');
             return redirect()->Back()->withInput()->withErrors($validator);
        }else{
             $dataSPKTP= new SPKTP();
@@ -92,6 +99,7 @@ class SPKTPController extends Controller
         }
 
         if ($validator->fails()) {
+            
             return redirect()->Back()->withInput()->withErrors($validator);
        }else{
             $dataSPKTP= SPKTP::find($id);

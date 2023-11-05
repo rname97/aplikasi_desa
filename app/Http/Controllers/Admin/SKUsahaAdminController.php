@@ -34,7 +34,7 @@ class SKUsahaAdminController extends Controller
         $validator = Validator::make($request->all(), [
                 'skUsaha_id_input' => 'required',
                 'skUsahaStatus_input' => 'required',
-                'skUsahaFile_input.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'skUsahaFile_input.*' => 'required|mimes:pdf|max:2048',
         ]);
 
         $filename = '';

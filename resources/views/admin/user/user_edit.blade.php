@@ -17,15 +17,6 @@
                 </div>
                 <div class="card-body">
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-name">KTP STATUS</label>
-                        <div class="col-sm-10">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Existing</option>
-                                <option value="1">No Existing</option>
-                              </select>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Nik</label>
                         <div class="col-sm-10">
                             <input type="text" name="nik_input" class="form-control" id="basic-default-name" value="{{$rowUser->nik}}" />
@@ -38,25 +29,44 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-company">tempatLahir</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Tempat Lahir</label>
                         <div class="col-sm-10">
                             <input type="text" name="tempatLahir_input" class="form-control" id="basic-default-company" value="{{$rowUser->tempatLahir}}"  />
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-company">tanggalLahir</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Tgl Lahir</label>
                         <div class="col-sm-10">
                             <input type="text" name="tanggalLahir_input" class="form-control" id="basic-default-company" value="{{$rowUser->tanggalLahir}}"  />
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-company">alamatKTP</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Agama</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="Default select example" name="agama_input">
+                                <option value="Islam">Islam</option>
+                                <option value="Kristen">Kristen</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Buddha">Buddha</option>
+                                <option value="Khonghucu">Khonghucu</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">No Telp</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="noTelp_input" class="form-control" id="basic-default-company" value="{{$rowUser->noTelp}}"  />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Alamat KTP</label>
                         <div class="col-sm-10">
                             <input type="text" name="alamatKTP_input" class="form-control" id="basic-default-company" value="{{$rowUser->alamatKTP}}"  />
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-company">alamatDomisili</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">Alamat Domisili</label>
                         <div class="col-sm-10">
                             <input type="text" name="alamatDomisili_input" class="form-control" id="basic-default-company" value="{{$rowUser->alamatDomisili}}"  />
                         </div>

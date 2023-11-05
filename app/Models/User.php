@@ -23,10 +23,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'ktpStatus',
         'fotoUser',
         'tempatLahir',
         'tanggalLahir',
+        'agama',
+        'noTelp',
         'alamatKTP',
         'alamatDomisili',
     ];

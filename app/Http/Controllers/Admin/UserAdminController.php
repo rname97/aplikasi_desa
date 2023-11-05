@@ -22,7 +22,6 @@ class UserAdminController extends Controller
         return view('admin.user.user_edit', $data);
     }
 
-
     public function updateUser(Request $request, $id){
         $newName = '';
         if($request->hasFile('fotoUser_input')){
@@ -35,27 +34,17 @@ class UserAdminController extends Controller
         }
 
         $dataUser= User::find($id);
-        if($request->ktpStatus_input == "existing"){
-            $dataUser->id                = $id;
-            $dataUser->nik               = $request->nik_input;
-            $dataUser->name              = $request->name_input;
-            $dataUser->ktpStatus         = $request->ktpStatus_input;
-            $dataUser->fotoUser          = $newName;
-            $dataUser->tempatLahir       = $request->tempatLahir_input;
-            $dataUser->tanggalLahir      = $request->tanggalLahir_input;
-            $dataUser->alamatKTP         = $request->alamatKTP_input;
-            $dataUser->alamatDomisili    = $request->alamatDomisili_input;
-        }else if($request->ktpStatus_input == "noexisting"){
-            $dataUser->id                = $id;
-            $dataUser->name              = $request->name_input;
-            $dataUser->ktpStatus         = $request->ktpStatus_input;
-            $dataUser->fotoUser          = $newName;
-            $dataUser->tempatLahir       = $request->tempatLahir_input;
-            $dataUser->tanggalLahir      = $request->tanggalLahir_input;
-            $dataUser->alamatKTP         = $request->alamatKTP_input;
-            $dataUser->alamatDomisili    = $request->alamatDomisili_input;
-        }
-
+        $dataUser->id                = $id;
+        $dataUser->nik               = $request->nik_input;
+        $dataUser->name              = $request->name_input;
+        $dataUser->fotoUser          = $newName;
+        $dataUser->tempatLahir       = $request->tempatLahir_input;
+        $dataUser->tanggalLahir      = $request->tanggalLahir_input;
+        $dataUser->agama             = $request->agama;
+        $dataUser->noTelp            = $request->noTelp;
+        $dataUser->alamatKTP         = $request->alamatKTP_input;
+        $dataUser->alamatDomisili    = $request->alamatDomisili_input;
+        
         $dataUser->update();
         Session::flash('alert-class', 'alert-success');
         Session::flash('message','Record inserted successfully.');

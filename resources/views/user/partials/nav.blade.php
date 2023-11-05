@@ -63,7 +63,7 @@
 
 <nav class="navbar navbar-expand-lg bg-faded justify-content-center px-5" style="background-color:#072a4d; color:white">
     {{-- <div class="container "> --}}
-        <a href="/" class="navbar-brand d-flex w-50 me-auto link-light">DESA</a>
+        <a href="/" class="navbar-brand d-flex w-50 me-auto link-light"><img src="{{ URL::asset('images/logo2.svg')}}" alt=""></a>
         <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
             <span class="navbar-toggler-icon"></span>
         </button>

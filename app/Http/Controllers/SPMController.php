@@ -51,7 +51,7 @@ class SPMController extends Controller
             $dataSPM->statusDesk    = "Data Masih Di Process";
             $dataSPM->admin_id      = "1";
             $dataSPM->status        = "1";
-            dd($dataSPM);
+            //dd($dataSPM);
             $dataSPM->save();
             Session::flash('alert-class', 'alert-success');
             Session::flash('message','Record inserted successfully.');
